@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@theme {
+  --font-bangla: "Hind Siliguri", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+  --font-latin: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Brand chrome — deep emerald, used sparingly so the page stays colourful */
+  --color-brand: #14543c;
+  --color-brand-deep: #0b3225;
+  --color-brand-soft: #eef5f1;
+
+  /* Primary action — marigold, warm and appetising */
+  --color-action: #e08a1e;
+  --color-action-dark: #b96c0c;
+  --color-action-soft: #fdf3e3;
+
+  /* Produce-stand accents — one per category family */
+  --color-mango: #e2571f;
+  --color-turmeric: #f0a830;
+  --color-berry: #b3314c;
+  --color-plum: #6d3b8f;
+  --color-teal: #0f7f7a;
+  --color-sky: #1f6fb2;
+  --color-lime: #6f9c1f;
+  --color-cocoa: #7a4a2b;
+
+  --color-canvas: #fbf7f0;
+  --color-surface: #ffffff;
+  --color-line: #ece0cf;
+  --color-line-soft: #f5eee3;
+  --color-art: #faf4ea;
+  --color-savings: #b3314c;
+  --color-ink: #221a14;
+  --color-muted: #6f6357;
+
+  --shadow-soft: 0 1px 2px rgba(34, 26, 20, 0.05), 0 10px 26px -16px rgba(20, 84, 60, 0.3);
+  --shadow-lift: 0 2px 6px rgba(34, 26, 20, 0.07), 0 22px 46px -24px rgba(20, 84, 60, 0.45);
+  --shadow-pop: 0 18px 50px -18px rgba(34, 26, 20, 0.45);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-latin);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Bangla glyphs need generous leading so vowel marks never clip. */
+  [lang="bn"] {
+    font-family: var(--font-bangla);
+    line-height: 1.62;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-action);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: #ffe3bb;
+    color: var(--color-brand-deep);
+  }
+}
+
+@layer utilities {
+  .num {
+    font-family: var(--font-latin);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .bn-tight {
+    line-height: 1.45;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  /* Thin warm divider used between stacked sections. */
+  .rule-warm {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(224, 138, 30, 0.45),
+      rgba(179, 49, 76, 0.35),
+      transparent
+    );
+  }
+}
+
+@keyframes mw-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mw-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mw-pop-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@keyframes mw-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mw-kenburns {
+  from {
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.07) translate3d(-1%, -0.5%, 0);
+  }
+}
+
+.animate-fade-up {
+  animation: mw-fade-up 0.4s ease-out both;
+}
+
+.animate-slide-up {
+  animation: mw-slide-up 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-pop-in {
+  animation: mw-pop-in 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-toast-in {
+  animation: mw-toast-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-kenburns {
+  animation: mw-kenburns 7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

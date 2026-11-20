@@ -1,0 +1,380 @@
+{
+  "avocado": {
+    "title": "File:Family members prepare avocado at a table during a meal at home.jpg",
+    "artist": "Shixart1985",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Family_members_prepare_avocado_at_a_table_during_a_meal_at_home.jpg",
+    "alt": "avocado"
+  },
+  "watermelon": {
+    "title": "File:Fresh Watermelons Stacked.jpg",
+    "artist": "PAULIX04",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fresh_Watermelons_Stacked.jpg",
+    "alt": "watermelon"
+  },
+  "cabbage": {
+    "title": "File:Fresh beans, water melons, cabbage, green vegetables and oranges.jpg",
+    "artist": "Kalungi Nathan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fresh_beans,_water_melons,_cabbage,_green_vegetables_and_oranges.jpg",
+    "alt": "cabbage vegetable"
+  },
+  "peas": {
+    "title": "File:Green pea pods.jpg",
+    "artist": "Fumikas Sagisavas",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Green_pea_pods.jpg",
+    "alt": "green peas"
+  },
+  "potato": {
+    "title": "File:Pérou légumes et tuberciles de Chinchero.jpg",
+    "artist": "Pierre André Leclercq",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:P%C3%A9rou_l%C3%A9gumes_et_tuberciles_de_Chinchero.jpg",
+    "alt": "potatoes"
+  },
+  "cherries": {
+    "title": "File:Cherries cherry branch fruit red 826113.jpg",
+    "artist": "Schueler-Design",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Cherries_cherry_branch_fruit_red_826113.jpg",
+    "alt": "cherries"
+  },
+  "grapes": {
+    "title": "File:\"Bunch of Green Grapes in Salem\".jpg",
+    "artist": "Thamizhpparithi Maari",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%22Bunch_of_Green_Grapes_in_Salem%22.jpg",
+    "alt": "grapes"
+  },
+  "green-chilli": {
+    "title": "File:28 Friggitello green sweet chili peppers - vegetable price in Bologna, Italy.jpg",
+    "artist": "Marek Ślusarczyk (Tupungato) Photo portfolio",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:28_Friggitello_green_sweet_chili_peppers_-_vegetable_price_in_Bologna,_Italy.jpg",
+    "alt": "green chilli"
+  },
+  "banana": {
+    "title": "File:Bananas by the bunch - Carrara Market (2569636765).jpg",
+    "artist": "Alpha from Melbourne, Australia",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bananas_by_the_bunch_-_Carrara_Market_(2569636765).jpg",
+    "alt": "bananas"
+  },
+  "lettuce": {
+    "title": "File:New Lettuce (6193662526).jpg",
+    "artist": "Dwight Sipler from Stow, MA, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Lettuce_(6193662526).jpg",
+    "alt": "lettuce"
+  },
+  "corn": {
+    "title": "File:Mmm... buttered sweet corn and a BLT for lunch (7670120520).jpg",
+    "artist": "jeffreyw",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mmm..._buttered_sweet_corn_and_a_BLT_for_lunch_(7670120520).jpg",
+    "alt": "sweet corn"
+  },
+  "capsicum": {
+    "title": "File:Baby Bell pepper ''Capsicum annuum'' .jpg",
+    "artist": "Brocken Inaglory",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Baby_Bell_pepper_%27%27Capsicum_annuum%27%27_.jpg",
+    "alt": "capsicum"
+  },
+  "onion": {
+    "title": "File:Catalogue of flower and vegetable seeds, gladiolus, lilies, and summer flowering bulbs, with instructions for their cultivation (1872) (20571010582).jpg",
+    "artist": "Bloomington Nursery (Bloomington, Ill.); Phoenix, F. K; Henry G. Gilbert Nursery and Seed Trade Catalog Collection",
+    "license": "No restrictions",
+    "licenseUrl": "https://www.flickr.com/commons/usage/",
+    "source": "https://commons.wikimedia.org/wiki/File:Catalogue_of_flower_and_vegetable_seeds,_gladiolus,_lilies,_and_summer_flowering_bulbs,_with_instructions_for_their_cultivation_(1872)_(20571010582).jpg",
+    "alt": "onions"
+  },
+  "tomatoes": {
+    "title": "File:Fresh Tomatoes, Green Pepper, Red Onion, and English Cucumbers (8736856749).jpg",
+    "artist": "Geoff Peters from Vancouver, BC, Canada",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fresh_Tomatoes,_Green_Pepper,_Red_Onion,_and_English_Cucumbers_(8736856749).jpg",
+    "alt": "tomatoes"
+  },
+  "carrot": {
+    "title": "File:ISS-43 Scott Kelly watches a bunch of fresh carrots.jpg",
+    "artist": "NASA",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:ISS-43_Scott_Kelly_watches_a_bunch_of_fresh_carrots.jpg",
+    "alt": "carrots"
+  },
+  "ginger": {
+    "title": "File:Liat Portal for Foodie Disorder - Fresh Ginger Root.jpg",
+    "artist": "HaJunkiyada",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Fresh_Ginger_Root.jpg",
+    "alt": "ginger"
+  },
+  "milk-powder": {
+    "title": "File:Two Piece Milk Glass Dresser Set With Jewelry Box and Powder Box From the 1904 World’s Fair.jpg",
+    "artist": "Unknown authorUnknown author",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Two_Piece_Milk_Glass_Dresser_Set_With_Jewelry_Box_and_Powder_Box_From_the_1904_World%E2%80%99s_Fair.jpg",
+    "alt": "milk powder"
+  },
+  "yogurt": {
+    "title": "File:Bedu shepherd family near Palmyra, Syria - 2.jpg",
+    "artist": "James Gordon from Los Angeles, California, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bedu_shepherd_family_near_Palmyra,_Syria_-_2.jpg",
+    "alt": "yogurt"
+  },
+  "milk": {
+    "title": "File:Clear Glass Milk Bottle from Meramac Dairy - DPLA - 9e9102319fea1647177098752be295c5 (page 1).jpg",
+    "artist": "Meramec Dairy",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Clear_Glass_Milk_Bottle_from_Meramac_Dairy_-_DPLA_-_9e9102319fea1647177098752be295c5_(page_1).jpg",
+    "alt": "milk"
+  },
+  "butter": {
+    "title": "File:Workers packaging butter in dairy factory (AM 88151-1).jpg",
+    "artist": "Collins, Tudor Washington, 1898-1970, photographer",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Workers_packaging_butter_in_dairy_factory_(AM_88151-1).jpg",
+    "alt": "butter"
+  },
+  "apples": {
+    "title": "File:'Basket of Apples' by Levi Wells Prentice, Dayton Art Institute.JPG",
+    "artist": "Levi Wells Prentice",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:%27Basket_of_Apples%27_by_Levi_Wells_Prentice,_Dayton_Art_Institute.JPG",
+    "alt": "apples"
+  },
+  "broccoli": {
+    "title": "File:Fresh vegetables.png",
+    "artist": "Tiia Monto",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fresh_vegetables.png",
+    "alt": "broccoli"
+  },
+  "cheese": {
+    "title": "File:Mmm...cheddar cheese and apple pie (5286947972).jpg",
+    "artist": "jeffreyw",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mmm...cheddar_cheese_and_apple_pie_(5286947972).jpg",
+    "alt": "cheese"
+  },
+  "rice": {
+    "title": "File:Uncooked ST25 rice on bamboo surface.jpg",
+    "artist": "VinhNguyen.1257",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Uncooked_ST25_rice_on_bamboo_surface.jpg",
+    "alt": "rice"
+  },
+  "eggs": {
+    "title": "File:A Basket of Chicken Eggs at Tuen Mun.jpg",
+    "artist": "Peachyeung316",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_Basket_of_Chicken_Eggs_at_Tuen_Mun.jpg",
+    "alt": "eggs"
+  },
+  "lentil": {
+    "title": "File:Grocer behind partitioned metal bins of colorful lentils and pulses Khulna.jpg",
+    "artist": "User:TanvirSdq",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Grocer_behind_partitioned_metal_bins_of_colorful_lentils_and_pulses_Khulna.jpg",
+    "alt": "lentils"
+  },
+  "mustard-oil": {
+    "title": "File:Heinz Salad Cream with bottle.JPG",
+    "artist": "Glane23",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Heinz_Salad_Cream_with_bottle.JPG",
+    "alt": "mustard oil"
+  },
+  "flour": {
+    "title": "File:All-Purpose Flour (4107895947).jpg",
+    "artist": "Veganbaking.net from USA",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:All-Purpose_Flour_(4107895947).jpg",
+    "alt": "flour"
+  },
+  "sugar": {
+    "title": "File:Bowl of white sugar without background.jpg",
+    "artist": "Douglas P Perkins",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bowl_of_white_sugar_without_background.jpg",
+    "alt": "sugar"
+  },
+  "spices": {
+    "title": "File:Chitpavan Brahmin Thali.jpg",
+    "artist": "Kashmira3091",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chitpavan_Brahmin_Thali.jpg",
+    "alt": "spices"
+  },
+  "soap": {
+    "title": "File:Washing glass mugs by hand in the basement interior of the chaang house, blue walls, blue shirt, motion, green boxes, soap, bricks, hose, spigot, Boudha, Kathmandu, Nepal (5894196563).jpg",
+    "artist": "Wonderlane from Seattle, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Washing_glass_mugs_by_hand_in_the_basement_interior_of_the_chaang_house,_blue_walls,_blue_shirt,_motion,_green_boxes,_soap,_bricks,_hose,_spigot,_Boudha,_Kathmandu,_Nepal_(5894196563).jpg",
+    "alt": "soap"
+  },
+  "shampoo": {
+    "title": "File:Hair shampoos, conditioners and other hair care products in liter bottles for use in hair salon.jpg",
+    "artist": "Pittigrilli",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hair_shampoos,_conditioners_and_other_hair_care_products_in_liter_bottles_for_use_in_hair_salon.jpg",
+    "alt": "shampoo"
+  },
+  "walnuts": {
+    "title": "File:Walnuts (5591677002).jpg",
+    "artist": "Pauline Mak",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Walnuts_(5591677002).jpg",
+    "alt": "walnuts"
+  },
+  "mini-chips": {
+    "title": "File:A Long Way From Home (53527425744).jpg",
+    "artist": "Pete from Liverpool, UK",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_Long_Way_From_Home_(53527425744).jpg",
+    "alt": "chips"
+  },
+  "bite-size": {
+    "title": "File:Filipinos-snack-choc-roll.jpg",
+    "artist": "user:Editore Editore 11:15, 7 September 2006 (UTC)",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Filipinos-snack-choc-roll.jpg",
+    "alt": "biscuits"
+  },
+  "toothpaste": {
+    "title": "File:Colgate France Dental 1915.jpg",
+    "artist": "Unknown authorUnknown author (Colgate New York USA)",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Colgate_France_Dental_1915.jpg",
+    "alt": "toothpaste"
+  },
+  "cashews": {
+    "title": "File:Factory workers engaged in deshelling, scooping, and kernel separation of cashew nuts.jpg",
+    "artist": "Sandeep Vengurlekar",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Factory_workers_engaged_in_deshelling,_scooping,_and_kernel_separation_of_cashew_nuts.jpg",
+    "alt": "cashews"
+  },
+  "juice": {
+    "title": "File:Freshly squeezed juice on a kitchen counter with a person writing notes while surrounded by fruit.jpg",
+    "artist": "Shixart1985",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Freshly_squeezed_juice_on_a_kitchen_counter_with_a_person_writing_notes_while_surrounded_by_fruit.jpg",
+    "alt": "juice"
+  },
+  "coco-shake": {
+    "title": "File:New chocolate milk.JPG",
+    "artist": "Sugar Bear",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:New_chocolate_milk.JPG",
+    "alt": "milkshake"
+  },
+  "tea": {
+    "title": "File:Darjeeling, India, Darjeeling tea, Black tea.jpg",
+    "artist": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Darjeeling,_India,_Darjeeling_tea,_Black_tea.jpg",
+    "alt": "tea"
+  },
+  "hair-oil": {
+    "title": "File:Coconut oil bottle in the background of coconuts from Kaleeswari Farm.jpg",
+    "artist": "deadrat",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Coconut_oil_bottle_in_the_background_of_coconuts_from_Kaleeswari_Farm.jpg",
+    "alt": "hair oil"
+  },
+  "slide-vegetables": {
+    "title": "File:Vibrant Vegetable Selection.jpg",
+    "artist": "PAULIX04",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vibrant_Vegetable_Selection.jpg",
+    "alt": "assorted fresh vegetables arranged on a table",
+    "sourceWidth": 2048,
+    "sourceHeight": 1153
+  },
+  "slide-supermarket": {
+    "title": "File:Private label products in Swedish Hemköp store.jpg",
+    "artist": "Väsk",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Private_label_products_in_Swedish_Hemk%C3%B6p_store.jpg",
+    "alt": "supermarket shelves stocked with grocery products",
+    "sourceWidth": 2048,
+    "sourceHeight": 1536
+  },
+  "banner-farm": {
+    "title": "File:Commission Row (Produce Row), St. Louis.jpg",
+    "artist": "Unknown authorUnknown author",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Commission_Row_(Produce_Row),_St._Louis.jpg",
+    "alt": "crates of fresh vegetables at a farm stand",
+    "sourceWidth": 6072,
+    "sourceHeight": 4762
+  },
+  "banner-pantry": {
+    "title": "File:Kitchen utensils hanging below a spice rack.jpg",
+    "artist": "Arthur S. Siegel",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Kitchen_utensils_hanging_below_a_spice_rack.jpg",
+    "alt": "pantry shelves lined with grocery jars",
+    "sourceWidth": 6400,
+    "sourceHeight": 7000
+  },
+  "slide-basket": {
+    "title": "File:Fruit Stand (246046301).jpeg",
+    "artist": "Francisco Anzola",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fruit_Stand_(246046301).jpeg",
+    "alt": "basket filled with fresh fruit and vegetables",
+    "sourceWidth": 2048,
+    "sourceHeight": 1362
+  }
+}
