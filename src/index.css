@@ -1,8 +1,36 @@
 @import "tailwindcss";
 
+/*
+ * Nikosh (নিকষ) — Bangla typeface developed for the Election Commission of
+ * Bangladesh; Bangla glyphs by Jowad Kazi, core developers Jowad Kazi,
+ * Omi Azad and Mozammel Sarker. Released under CC BY-NC-ND 3.0.
+ * Self-hosted from /public/fonts because it is not served by Google Fonts.
+ *
+ * The unicode-range deliberately covers only the Bangla block, so the Latin
+ * glyphs baked into the file (borrowed from DejaVu Serif) never win against
+ * Plus Jakarta Sans — Latin text keeps the site's own typeface.
+ */
+@font-face {
+  font-family: "Nikosh";
+  src:
+    url("/fonts/Nikosh.woff2") format("woff2"),
+    url("/fonts/Nikosh.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0964-0965, U+0981-0983, U+0985-098C, U+098F-0990, U+0993-09A8,
+    U+09AA-09B0, U+09B2, U+09B6-09B9, U+09BC-09C4, U+09C7-09C8,
+    U+09CB-09CE, U+09D7, U+09DC-09DD, U+09DF-09E3, U+09E5-09FC,
+    U+200C-200D;
+}
+
 @theme {
-  --font-bangla: "Hind Siliguri", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
-  --font-latin: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-bangla: "Nikosh", "Hind Siliguri", "Noto Sans Bengali", ui-sans-serif, system-ui,
+    sans-serif;
+  /* Nikosh trails the Latin face so it only supplies the ৳ taka sign. */
+  --font-latin: "Plus Jakarta Sans", "Nikosh", ui-sans-serif, system-ui, -apple-system,
+    sans-serif;
 
   /* Brand chrome — deep emerald, used sparingly so the page stays colourful */
   --color-brand: #14543c;
