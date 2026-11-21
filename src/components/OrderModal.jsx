@@ -47,7 +47,7 @@ export default function OrderModal({
         aria-hidden="true"
       />
 
-      <div className="animate-pop-in relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-3xl bg-surface shadow-pop sm:rounded-3xl">
+      <div className="animate-pop-in safe-bottom relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-3xl bg-surface shadow-pop sm:rounded-3xl">
         <header className="flex items-center justify-between gap-3 border-b border-line px-5 py-4">
           <div className="flex items-center gap-2.5">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-action-soft text-action-dark">

@@ -43,7 +43,7 @@ export default function ProductRail({
     <div className="relative">
       <div
         ref={trackRef}
-        className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2"
+        className="no-scrollbar -mx-3.5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-3.5 pb-2 sm:-mx-4 sm:gap-4 sm:px-4"
       >
         {products.map((product) => {
           const variantId = selectedVariants[product.id] ?? product.variants[0].id;
@@ -51,7 +51,7 @@ export default function ProductRail({
             <div
               key={product.id}
               data-rail-card
-              className="w-[190px] shrink-0 snap-start sm:w-[218px] lg:w-[236px]"
+              className="w-[calc(50%-0.375rem)] shrink-0 snap-start xs:w-[calc(50%-0.5rem)] sm:w-[218px] lg:w-[236px]"
             >
               <ProductCard
                 copy={copy}

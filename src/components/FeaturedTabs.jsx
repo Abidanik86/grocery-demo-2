@@ -39,17 +39,7 @@ export default function FeaturedTabs({
       />
 
       <div className="shell relative">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-soft px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-brand">
-              <Sparkles className="h-3.5 w-3.5" strokeWidth={2.6} />
-              {copy.nav.shop}
-            </span>
-            <h2 className="mt-2.5 text-[24px] font-extrabold tracking-tight text-brand-deep sm:text-[31px]">
-              {copy.featured.title}
-            </h2>
-            <p className="mt-1 text-[13.5px] text-muted">{copy.featured.subtitle}</p>
-          </div>
+        {/* <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
 
           <button
             type="button"
@@ -62,7 +52,7 @@ export default function FeaturedTabs({
               strokeWidth={2.6}
             />
           </button>
-        </div>
+        </div> */}
 
         <div className="no-scrollbar mt-5 flex gap-2 overflow-x-auto pb-1">
           {TABS.map((tab) => {

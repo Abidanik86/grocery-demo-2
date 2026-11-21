@@ -12,13 +12,13 @@ export default function Toast({ message, onDone }) {
 
   return (
     <div
-      className="animate-toast-in fixed inset-x-0 top-[76px] z-[90] flex justify-center px-4 sm:top-[92px]"
+      className="animate-toast-in pointer-events-none fixed inset-x-0 top-[124px] z-[90] flex justify-center px-4 sm:top-[92px]"
       role="status"
       aria-live="polite"
     >
-      <div className="flex items-center gap-2.5 rounded-2xl bg-brand-deep px-4 py-3 text-white shadow-pop">
+      <div className="flex max-w-[calc(100vw-2rem)] items-center gap-2.5 rounded-2xl bg-brand-deep px-4 py-3 text-white shadow-pop">
         <CheckCircle2 className="h-[18px] w-[18px] shrink-0 text-lime" strokeWidth={2.6} />
-        <span className="text-[13px] font-semibold">{message}</span>
+        <span className="truncate text-[13px] font-semibold">{message}</span>
       </div>
     </div>
   );

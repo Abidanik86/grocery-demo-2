@@ -26,6 +26,9 @@
 }
 
 @theme {
+  /* Extra breakpoint for the narrowest phones (320–400px). */
+  --breakpoint-xs: 400px;
+
   --font-bangla: "Nikosh", "Hind Siliguri", "Noto Sans Bengali", ui-sans-serif, system-ui,
     sans-serif;
   /* Nikosh trails the Latin face so it only supplies the ৳ taka sign. */
@@ -78,6 +81,10 @@
     font-family: var(--font-latin);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* Long Bangla words must never force the page sideways. `clip` rather
+       than `hidden` so it never becomes a scroll container and breaks the
+       sticky header. */
+    overflow-x: clip;
   }
 
   /* Bangla glyphs need generous leading so vowel marks never clip. */
@@ -101,6 +108,23 @@
   ::selection {
     background: #ffe3bb;
     color: var(--color-brand-deep);
+  }
+
+  /* iOS zooms the viewport when a focused field is under 16px. */
+  @media (max-width: 767px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
+
+  /* Remove the tap flash on touch devices without killing focus rings. */
+  @media (hover: none) {
+    button,
+    [role="button"] {
+      -webkit-tap-highlight-color: transparent;
+    }
   }
 }
 
@@ -128,11 +152,22 @@
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
+  /* Bottom tab bar and floating pill must clear the home indicator. */
+  .safe-bottom-full {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem);
+  }
+
   .shell {
     width: 100%;
     max-width: 1280px;
     margin-inline: auto;
-    padding-inline: 1rem;
+    padding-inline: 0.875rem;
+  }
+
+  @media (min-width: 480px) {
+    .shell {
+      padding-inline: 1.25rem;
+    }
   }
 
   @media (min-width: 768px) {
@@ -150,6 +185,16 @@
       rgba(179, 49, 76, 0.35),
       transparent
     );
+  }
+
+  /* Scroll containers that must not bleed their own padding into the page. */
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+
+  .snap-start {
+    scroll-snap-align: start;
   }
 }
 

@@ -167,7 +167,7 @@ export default function CartDrawer({
               </ul>
             </div>
 
-            <footer className="border-t border-line bg-canvas/70 px-5 py-4">
+            <footer className="safe-bottom border-t border-line bg-canvas/70 px-5 py-4">
               <dl className="space-y-1.5 text-[13px]">
                 <div className="flex items-center justify-between">
                   <dt className="text-muted">{copy.cart.subtotal}</dt>

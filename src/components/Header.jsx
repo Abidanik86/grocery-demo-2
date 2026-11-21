@@ -8,7 +8,6 @@ import {
   Search,
   ShoppingCart,
   User,
-  X,
 } from 'lucide-react';
 import Logo from './icons/Logo';
 import { takaCompact } from '../lib/format';
@@ -26,6 +25,7 @@ export default function Header({
   onOpenCart,
   onOpenWishlist,
   onOpenMenu,
+  onOpenSearch,
   onSearch,
   searchResults,
   searchQuery,
@@ -93,7 +93,7 @@ export default function Header({
           scrolled ? 'shadow-soft' : ''
         }`}
       >
-        <div className="shell flex items-center gap-3 py-2.5 lg:gap-6 lg:py-3">
+        <div className="shell flex items-center gap-2 py-2.5 sm:gap-3 lg:gap-6 lg:py-3">
           <button
             type="button"
             onClick={onOpenMenu}
@@ -103,8 +103,11 @@ export default function Header({
             <Menu className="h-5 w-5" strokeWidth={2.2} />
           </button>
 
-          <a href="#top" className="shrink-0">
-            <Logo />
+          <a href="#top" className="min-w-0 shrink-0">
+            <Logo
+              subtitleClassName="hidden sm:inline-flex"
+              textClassName="hidden xs:flex sm:flex"
+            />
           </a>
 
           {/* Delivery area picker */}
@@ -162,9 +165,10 @@ export default function Header({
             )}
           </div>
 
-          {/* Search */}
+          {/* Search — full field on desktop, icon (which opens the Search
+              tab) below the desktop breakpoint. */}
           <form
-            className="relative hidden min-w-0 flex-1 md:block"
+            className="relative hidden min-w-0 flex-1 lg:block"
             onSubmit={(event) => {
               event.preventDefault();
               onSearch(searchQuery);
@@ -197,9 +201,17 @@ export default function Header({
               />
             )}
           </form>
-
           {/* Actions */}
-          <div className="ml-auto flex shrink-0 items-center gap-1 sm:gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-0.5 sm:gap-2">
+            <button
+              type="button"
+              onClick={onOpenSearch}
+              className="grid h-10 w-10 place-items-center rounded-xl text-ink transition-colors hover:bg-line-soft lg:hidden"
+              aria-label={copy.nav.searchBtn}
+            >
+              <Search className="h-[21px] w-[21px]" strokeWidth={2.1} />
+            </button>
+
             <button
               type="button"
               onClick={onOpenWishlist}
@@ -225,7 +237,7 @@ export default function Header({
             <button
               type="button"
               onClick={onOpenCart}
-              className="relative flex h-10 items-center gap-2 rounded-xl bg-action px-3 text-white shadow-soft transition-colors hover:bg-action-dark sm:px-3.5"
+              className="relative flex h-10 items-center gap-2 rounded-xl bg-action px-2.5 text-white shadow-soft transition-colors hover:bg-action-dark sm:px-3.5"
               aria-label={copy.nav.cart}
             >
               <span className="relative">
@@ -236,44 +248,11 @@ export default function Header({
                   </span>
                 )}
               </span>
-              <span className="hidden text-[13px] font-bold lg:inline">
+              <span className="num hidden text-[13px] font-bold lg:inline">
                 {takaCompact(cartTotal)}
               </span>
             </button>
           </div>
-        </div>
-
-        {/* Mobile search row */}
-        <div className="shell pb-2.5 md:hidden">
-          <form
-            className="relative"
-            onSubmit={(event) => {
-              event.preventDefault();
-              onSearch(searchQuery);
-            }}
-          >
-            <Search
-              className="pointer-events-none absolute left-3 top-1/2 h-[17px] w-[17px] -translate-y-1/2 text-muted"
-              strokeWidth={2.2}
-            />
-            <input
-              type="search"
-              value={searchQuery}
-              onChange={(event) => onSearchQueryChange(event.target.value)}
-              placeholder={copy.nav.searchPlaceholder}
-              className="h-10 w-full rounded-xl border border-line bg-canvas pl-9 pr-10 text-[13px] outline-none focus:border-action focus:bg-surface"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => onSearchQueryChange('')}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-md p-1 text-muted hover:bg-line-soft"
-                aria-label={copy.nav.close}
-              >
-                <X className="h-4 w-4" strokeWidth={2.4} />
-              </button>
-            )}
-          </form>
         </div>
       </div>
     </header>

@@ -71,10 +71,6 @@ export default function ProductGrid({
         {/* Heading */}
         <div className="flex flex-col gap-4 border-b border-line pb-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-soft px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-brand">
-              <LayoutGrid className="h-3.5 w-3.5" strokeWidth={2.6} />
-              {copy.catalog.title}
-            </span>
             <h2 className="mt-2.5 text-[24px] font-extrabold tracking-tight text-brand-deep sm:text-[31px]">
               {copy.catalog.title}
             </h2>

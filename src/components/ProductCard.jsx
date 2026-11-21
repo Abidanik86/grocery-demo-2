@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Heart, Minus, Plus, Scale, ShoppingCart, Star, Eye } from 'lucide-react';
+import { Heart, Minus, Plus, Scale, ShoppingCart, Star, Eye } from 'lucide-react';
 import { BADGES } from '../data/categories';
 import { discountPercent, taka } from '../lib/format';
 
@@ -67,8 +67,9 @@ export default function ProductCard({
           )}
         </div>
 
-        {/* Hover actions */}
-        <div className="absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-center gap-1.5 opacity-0 transition-all duration-300 group-hover:opacity-100">
+        {/* Hover actions — on touch devices they stay visible so they are
+            actually reachable without a pointer. */}
+        <div className="absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-center gap-1.5 transition-all duration-300 max-lg:opacity-100 lg:opacity-0 lg:group-focus-within:opacity-100 lg:group-hover:opacity-100">
           <button
             type="button"
             onClick={() => onQuickView(product)}
@@ -93,16 +94,17 @@ export default function ProductCard({
           </button>
           <button
             type="button"
-            className="grid h-9 w-9 place-items-center rounded-full bg-white text-brand-deep shadow-soft transition-transform hover:scale-110"
+            className="hidden h-9 w-9 place-items-center rounded-full bg-white text-brand-deep shadow-soft transition-transform hover:scale-110 lg:grid"
             aria-label={copy.featured.compare}
           >
             <Scale className="h-[17px] w-[17px]" strokeWidth={2.2} />
           </button>
         </div>
 
-        {/* Add to cart overlay */}
+        {/* Add to cart overlay — desktop only, where it can ride on the
+            image. Touch layouts put the action in the card body instead. */}
         {!compact && (
-          <div className="absolute inset-x-2 bottom-2 translate-y-[130%] transition-transform duration-300 group-hover:translate-y-0">
+          <div className="absolute inset-x-2 bottom-2 hidden transition-transform duration-300 lg:translate-y-[130%] lg:group-focus-within:translate-y-0 lg:group-hover:translate-y-0 lg:block">
             {inCart ? (
               <div className="flex h-9 items-center justify-between rounded-xl bg-brand px-1.5 shadow-lift">
                 <button
@@ -166,7 +168,7 @@ export default function ProductCard({
                 key={item.id}
                 type="button"
                 onClick={() => onPickVariant(product.id, item.id)}
-                className={`rounded-lg border px-1.5 py-0.5 text-[10.5px] font-semibold transition-colors ${
+                className={`min-h-[28px] rounded-lg border px-1.5 py-1 text-[10.5px] font-semibold leading-none transition-colors ${
                   item.id === variant.id
                     ? 'border-brand bg-brand text-white'
                     : 'border-line text-muted hover:border-brand/40 hover:text-brand'
@@ -193,20 +195,43 @@ export default function ProductCard({
             </span>
           </div>
 
-          {compact && (
-            <button
-              type="button"
-              onClick={() => onAdd(product.id, variant.id)}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-action text-white shadow-soft transition-colors hover:bg-action-dark"
-              aria-label={copy.featured.addToCart}
-            >
-              {inCart ? (
-                <Check className="h-4 w-4" strokeWidth={3} />
-              ) : (
-                <ShoppingCart className="h-[17px] w-[17px]" strokeWidth={2.5} />
-              )}
-            </button>
-          )}
+          {/* Touch action sits in the card body where it cannot be missed
+              or accidentally tapped over the product photo. On desktop the
+              image overlay handles it, so the body copy steps aside. */}
+          <div className={`flex shrink-0 flex-col items-end gap-1 ${compact ? '' : 'lg:hidden'}`}>
+            {inCart ? (
+              <div className="flex h-9 items-center gap-0.5 rounded-lg border border-line bg-canvas px-0.5">
+                <button
+                  type="button"
+                  onClick={() => onDecrement(product.id, variant.id)}
+                  className="grid h-8 w-8 place-items-center rounded-md text-ink transition-colors hover:bg-line-soft"
+                  aria-label="Decrease"
+                >
+                  <Minus className="h-3.5 w-3.5" strokeWidth={3} />
+                </button>
+                <span className="num w-6 text-center text-[12px] font-bold text-ink">
+                  {qty}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => onIncrement(product.id, variant.id)}
+                  className="grid h-8 w-8 place-items-center rounded-md text-ink transition-colors hover:bg-line-soft"
+                  aria-label="Increase"
+                >
+                  <Plus className="h-3.5 w-3.5" strokeWidth={3} />
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => onAdd(product.id, variant.id)}
+                className="grid h-10 w-10 place-items-center rounded-xl bg-action text-white shadow-soft transition-colors hover:bg-action-dark"
+                aria-label={copy.featured.addToCart}
+              >
+                <ShoppingCart className="h-[18px] w-[18px]" strokeWidth={2.5} />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </article>

@@ -10,6 +10,7 @@ export default function CategoryNav({
   onCategoryChange,
   onOpenMenu,
   onNavigate,
+  className = '',
 }) {
   const [open, setOpen] = useState(false);
 
@@ -20,7 +21,7 @@ export default function CategoryNav({
   };
 
   return (
-    <nav className="relative z-30 border-b border-line bg-surface">
+    <nav className={`relative z-30 border-b border-line bg-surface ${className}`}>
       <div className="shell flex items-stretch gap-1">
         {/* Mega menu trigger */}
         <div

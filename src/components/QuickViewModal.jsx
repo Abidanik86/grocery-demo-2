@@ -52,7 +52,7 @@ export default function QuickViewModal({
         aria-hidden="true"
       />
 
-      <div className="animate-pop-in relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-3xl bg-surface shadow-pop sm:rounded-3xl">
+      <div className="animate-pop-in safe-bottom relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-3xl bg-surface shadow-pop sm:rounded-3xl">
         <button
           type="button"
           onClick={onClose}

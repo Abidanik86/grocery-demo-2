@@ -1,10 +1,9 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Header from './components/Header';
 import CategoryNav from './components/CategoryNav';
 import HeroSlider from './components/HeroSlider';
 import FeatureStrip from './components/FeatureStrip';
 import FeaturedTabs from './components/FeaturedTabs';
-import PromoBanners from './components/PromoBanners';
 import ProductGrid from './components/ProductGrid';
 import CartDrawer from './components/CartDrawer';
 import QuickViewModal from './components/QuickViewModal';
@@ -17,10 +16,19 @@ import {
   MobileNav,
   WishlistDrawer,
 } from './components/MobileNav';
+import {
+  MobileAccount,
+  MobileCart,
+  MobileCategories,
+  MobileHome,
+  MobileSearch,
+  MobileTabView,
+} from './components/MobileViews';
 import { CATEGORIES, CATEGORY_ICONS } from './data/categories';
 import { COPY, AREAS } from './data/copy';
 import { PRODUCTS, productById, searchProducts } from './data/catalog';
 import { useCart, useCartTotals } from './hooks/useCart';
+import { useIsMobile } from './hooks/useMediaQuery';
 
 export default function App() {
   const [lang, setLang] = useState('bn');
@@ -36,6 +44,8 @@ export default function App() {
   const [order, setOrder] = useState(null);
   const [toast, setToast] = useState('');
   const [activeTab, setActiveTab] = useState('home');
+
+  const isMobile = useIsMobile();
 
   const copy = COPY[lang];
   const {
@@ -111,6 +121,21 @@ export default function App() {
     document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
+  /** Mobile tabs replace scrolling, so category picks route to a tab instead. */
+  const goToCategory = useCallback(
+    (categoryId) => {
+      if (!categoryId) return;
+      setActiveCategory(categoryId);
+      if (isMobile) {
+        setActiveTab('categories');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      scrollToCatalog(categoryId);
+    },
+    [isMobile, scrollToCatalog],
+  );
+
   const handleSearch = useCallback(
     (query) => {
       setSearchQuery(query);
@@ -124,6 +149,18 @@ export default function App() {
     },
     [scrollToCatalog],
   );
+
+  /** Switching tabs always returns the reader to the top of the new view. */
+  const changeTab = useCallback((tab) => {
+    setActiveTab(tab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  // Keep the active tab valid when the viewport crosses the desktop
+  // breakpoint, where the tabbed layout is replaced by the full page.
+  useEffect(() => {
+    if (!isMobile && activeTab !== 'home') setActiveTab('home');
+  }, [isMobile, activeTab]);
 
   const handlePlaceOrder = useCallback(
     (details) => {
@@ -152,7 +189,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0">
       <Header
         copy={copy}
         lang={lang}
@@ -163,9 +200,10 @@ export default function App() {
         cartCount={totals.itemCount}
         cartTotal={totals.total}
         wishlistCount={wishlist.length}
-        onOpenCart={() => setCartOpen(true)}
-        onOpenWishlist={() => setWishOpen(true)}
+        onOpenCart={() => (isMobile ? changeTab('cart') : setCartOpen(true))}
+        onOpenWishlist={() => (isMobile ? changeTab('account') : setWishOpen(true))}
         onOpenMenu={() => setMenuOpen(true)}
+        onOpenSearch={() => (isMobile ? changeTab('search') : undefined)}
         onSearch={handleSearch}
         searchResults={searchResults}
         searchQuery={searchQuery}
@@ -176,108 +214,153 @@ export default function App() {
         copy={copy}
         lang={lang}
         activeCategory={activeCategory}
-        onCategoryChange={scrollToCatalog}
+        onCategoryChange={goToCategory}
         onOpenMenu={() => setMenuOpen(true)}
         onNavigate={() => setMenuOpen(false)}
+        className={isMobile ? 'hidden' : ''}
       />
 
       <main>
-        <HeroSlider
-          copy={copy}
-          lang={lang}
-          onShop={() => scrollToCatalog('all')}
-        />
+        {isMobile ? (
+          <MobileTabView
+            tab={activeTab}
+            copy={copy}
+            lang={lang}
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
+            selectedVariants={selectedVariants}
+            onSelectVariant={handleSelectVariant}
+            qtyOf={qtyOf}
+            onAdd={handleAdd}
+            onIncrement={increment}
+            onDecrement={handleDecrement}
+            onQuickView={setQuickView}
+            onToggleWishlist={handleToggleWishlist}
+            isWishlisted={isWishlisted}
+            searchQuery={searchQuery}
+            onSearchQueryChange={setSearchQuery}
+            searchResults={searchResults}
+            totals={totals}
+            onOpenMenu={() => setMenuOpen(true)}
+            onOpenCategories={(categoryId) => goToCategory(categoryId)}
+            onSeeAll={() => changeTab('categories')}
+            onShop={() => changeTab('categories')}
+            onCheckout={() => setOrderOpen(true)}
+            onKeepShopping={() => changeTab('home')}
+            onRemoveItem={(productId, variantId) => {
+              removeItem(productId, variantId);
+              showToast(copy.toast.removed);
+            }}
+            area={area}
+            areas={AREAS}
+            onAreaChange={setArea}
+            wishlistProducts={wishlistProducts}
+            onRemoveWishlist={(productId) => {
+              toggleWishlist(productId);
+              showToast(copy.product.removedWishlist);
+            }}
+          />
+        ) : (
+          <>
+            <HeroSlider
+              copy={copy}
+              lang={lang}
+              onShop={() => scrollToCatalog('all')}
+            />
 
-        <FeatureStrip copy={copy} />
+            <FeatureStrip copy={copy} />
 
-        <FeaturedTabs
-          copy={copy}
-          lang={lang}
-          selectedVariants={selectedVariants}
-          onSelectVariant={handleSelectVariant}
-          qtyOf={qtyOf}
-          onAdd={handleAdd}
-          onIncrement={increment}
-          onDecrement={handleDecrement}
-          onQuickView={setQuickView}
-          onToggleWishlist={handleToggleWishlist}
-          isWishlisted={isWishlisted}
-          onSeeAll={scrollToCatalog}
-        />
+            <FeaturedTabs
+              copy={copy}
+              lang={lang}
+              selectedVariants={selectedVariants}
+              onSelectVariant={handleSelectVariant}
+              qtyOf={qtyOf}
+              onAdd={handleAdd}
+              onIncrement={increment}
+              onDecrement={handleDecrement}
+              onQuickView={setQuickView}
+              onToggleWishlist={handleToggleWishlist}
+              isWishlisted={isWishlisted}
+              onSeeAll={scrollToCatalog}
+            />
 
-        <PromoBanners copy={copy} lang={lang} />
-
-        <ProductGrid
-          copy={copy}
-          lang={lang}
-          products={visibleProducts}
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-          selectedVariants={selectedVariants}
-          onSelectVariant={handleSelectVariant}
-          qtyOf={qtyOf}
-          onAdd={handleAdd}
-          onIncrement={increment}
-          onDecrement={handleDecrement}
-          onQuickView={setQuickView}
-          onToggleWishlist={handleToggleWishlist}
-          isWishlisted={isWishlisted}
-        />
+            <ProductGrid
+              copy={copy}
+              lang={lang}
+              products={visibleProducts}
+              activeCategory={activeCategory}
+              onCategoryChange={setActiveCategory}
+              selectedVariants={selectedVariants}
+              onSelectVariant={handleSelectVariant}
+              qtyOf={qtyOf}
+              onAdd={handleAdd}
+              onIncrement={increment}
+              onDecrement={handleDecrement}
+              onQuickView={setQuickView}
+              onToggleWishlist={handleToggleWishlist}
+              isWishlisted={isWishlisted}
+            />
+          </>
+        )}
       </main>
 
       <Footer copy={copy} lang={lang} />
 
       {/* Mobile chrome */}
-      <FloatingCartPill copy={copy} totals={totals} onOpenCart={() => setCartOpen(true)} />
+      {isMobile && (
+        <FloatingCartPill
+          copy={copy}
+          totals={totals}
+          onOpenCart={() => changeTab('cart')}
+        />
+      )}
       <MobileNav
         copy={copy}
         activeTab={activeTab}
-        onTabChange={(tab) => {
-          setActiveTab(tab);
-          if (tab === 'home') window.scrollTo({ top: 0, behavior: 'smooth' });
-          if (tab === 'categories') scrollToCatalog('all');
-          if (tab === 'cart') setCartOpen(true);
-        }}
-        onSearch={() => {
-          setActiveTab('search');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onOpenMenu={() => setMenuOpen(true)}
+        onTabChange={changeTab}
+        cartCount={totals.itemCount}
+        wishlistCount={wishlist.length}
       />
 
-      {/* Overlays */}
-      <CartDrawer
-        copy={copy}
-        lang={lang}
-        open={cartOpen}
-        onClose={() => setCartOpen(false)}
-        detailedItems={totals.detailed}
-        totals={totals}
-        onIncrement={increment}
-        onDecrement={handleDecrement}
-        onRemove={(productId, variantId) => {
-          removeItem(productId, variantId);
-          showToast(copy.toast.removed);
-        }}
-        onCheckout={() => {
-          setCartOpen(false);
-          setOrderOpen(true);
-        }}
-        onKeepShopping={() => setCartOpen(false)}
-      />
+      {/* Overlays — on phones the cart and wishlist are dedicated tabs,
+          so their drawers are not mounted at all. */}
+      {!isMobile && (
+        <>
+          <CartDrawer
+            copy={copy}
+            lang={lang}
+            open={cartOpen}
+            onClose={() => setCartOpen(false)}
+            detailedItems={totals.detailed}
+            totals={totals}
+            onIncrement={increment}
+            onDecrement={handleDecrement}
+            onRemove={(productId, variantId) => {
+              removeItem(productId, variantId);
+              showToast(copy.toast.removed);
+            }}
+            onCheckout={() => {
+              setCartOpen(false);
+              setOrderOpen(true);
+            }}
+            onKeepShopping={() => setCartOpen(false)}
+          />
 
-      <WishlistDrawer
-        copy={copy}
-        lang={lang}
-        open={wishOpen}
-        onClose={() => setWishOpen(false)}
-        products={wishlistProducts}
-        onAdd={handleAdd}
-        onRemove={(productId) => {
-          toggleWishlist(productId);
-          showToast(copy.product.removedWishlist);
-        }}
-      />
+          <WishlistDrawer
+            copy={copy}
+            lang={lang}
+            open={wishOpen}
+            onClose={() => setWishOpen(false)}
+            products={wishlistProducts}
+            onAdd={handleAdd}
+            onRemove={(productId) => {
+              toggleWishlist(productId);
+              showToast(copy.product.removedWishlist);
+            }}
+          />
+        </>
+      )}
 
       <MenuDrawer
         copy={copy}

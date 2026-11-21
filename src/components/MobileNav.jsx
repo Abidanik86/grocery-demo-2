@@ -1,38 +1,57 @@
-import { Grid2X2, Heart, Home, Menu, Search, ShoppingCart } from 'lucide-react';
+import { Grid2X2, Heart, Home, Search, ShoppingCart, User } from 'lucide-react';
 import { taka } from '../lib/format';
 
-export function MobileNav({ copy, activeTab, onTabChange, onSearch, onOpenMenu }) {
+/**
+ * Bottom tab bar for phones.
+ *
+ * Each tab owns a full view (Home / Categories / Search / Account / Cart) so
+ * the catalogue never has to be scrolled through end to end.
+ */
+export function MobileNav({ copy, activeTab, onTabChange, cartCount, wishlistCount }) {
   const tabs = [
     { id: 'home', icon: Home, label: copy.nav.home },
     { id: 'categories', icon: Grid2X2, label: copy.nav.categories },
     { id: 'search', icon: Search, label: copy.nav.searchBtn },
-    { id: 'menu', icon: Menu, label: copy.nav.menu },
+    { id: 'account', icon: User, label: copy.nav.account },
     { id: 'cart', icon: ShoppingCart, label: copy.nav.cart },
   ];
 
   return (
-    <nav className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/97 backdrop-blur lg:hidden">
+    <nav
+      className="safe-bottom-full fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/97 backdrop-blur lg:hidden"
+      aria-label={copy.nav.menu}
+    >
       <ul className="flex items-stretch">
         {tabs.map((tab) => {
           const active = activeTab === tab.id;
           const Icon = tab.icon;
+          const badge = tab.id === 'cart' ? cartCount : tab.id === 'account' ? wishlistCount : 0;
           return (
             <li key={tab.id} className="flex-1">
               <button
                 type="button"
-                onClick={() => {
-                  if (tab.id === 'search') onSearch();
-                  else if (tab.id === 'menu') onOpenMenu();
-                  else onTabChange(tab.id);
-                }}
-                className={`flex w-full flex-col items-center gap-1 py-2.5 transition-colors ${
+                onClick={() => onTabChange(tab.id)}
+                aria-current={active ? 'page' : undefined}
+                className={`relative flex min-h-[54px] w-full flex-col items-center justify-center gap-1 py-2 transition-colors ${
                   active ? 'text-brand' : 'text-muted'
                 }`}
               >
-                <Icon
-                  className={`h-[21px] w-[21px] ${active ? 'stroke-[2.5]' : 'stroke-[2]'}`}
-                />
-                <span className="text-[10px] font-semibold">{tab.label}</span>
+                {active && (
+                  <span className="absolute inset-x-4 top-0 h-[3px] rounded-b-full bg-action" />
+                )}
+                <span className="relative">
+                  <Icon
+                    className={`h-[21px] w-[21px] ${active ? 'stroke-[2.5]' : 'stroke-[2]'}`}
+                  />
+                  {badge > 0 && (
+                    <span className="num absolute -right-2 -top-1.5 grid h-[17px] min-w-[17px] place-items-center rounded-full bg-berry px-1 text-[10px] font-bold text-white">
+                      {badge > 99 ? '99+' : badge}
+                    </span>
+                  )}
+                </span>
+                <span className="max-w-full truncate px-0.5 text-[10px] font-semibold">
+                  {tab.label}
+                </span>
               </button>
             </li>
           );
@@ -49,7 +68,7 @@ export function FloatingCartPill({ copy, totals, onOpenCart }) {
     <button
       type="button"
       onClick={onOpenCart}
-      className="safe-bottom fixed bottom-[76px] left-1/2 z-40 flex -translate-x-1/2 items-center gap-2.5 rounded-full bg-brand px-5 py-3 text-white shadow-lift transition-transform active:scale-95 lg:hidden"
+      className="safe-bottom-full fixed bottom-[74px] left-1/2 z-40 flex max-w-[calc(100vw-2rem)] -translate-x-1/2 items-center gap-2.5 rounded-full bg-brand px-5 py-3 text-white shadow-lift transition-transform active:scale-95 lg:hidden"
     >
       <span className="relative">
         <ShoppingCart className="h-[19px] w-[19px]" strokeWidth={2.4} />
@@ -79,6 +98,7 @@ export function WishlistDrawer({ copy, lang, open, onClose, products, onAdd, onR
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
         aria-label={copy.nav.wishlist}
+        aria-hidden={!open}
       >
         <header className="flex items-center justify-between border-b border-line px-5 py-4">
           <h2 className="flex items-center gap-2 text-[16px] font-extrabold text-brand-deep">
@@ -163,6 +183,7 @@ export function MenuDrawer({ copy, lang, open, onClose, categories, onPickCatego
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
         aria-label={copy.nav.menu}
+        aria-hidden={!open}
       >
         <header className="flex items-center justify-between border-b border-line px-5 py-4">
           <h2 className="text-[16px] font-extrabold text-brand-deep">{copy.nav.menu}</h2>

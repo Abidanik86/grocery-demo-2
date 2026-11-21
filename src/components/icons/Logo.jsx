@@ -1,4 +1,9 @@
-export default function Logo({ compact = false, className = '' }) {
+export default function Logo({
+  compact = false,
+  className = '',
+  subtitleClassName = '',
+  textClassName = '',
+}) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <span className="relative grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand via-[#1a6b4c] to-brand-deep shadow-soft">
@@ -23,12 +28,16 @@ export default function Logo({ compact = false, className = '' }) {
         </svg>
       </span>
       {!compact && (
-        <span className="flex flex-col leading-none">
+        <span className={`flex flex-col leading-none ${textClassName}`}>
           <span className="text-[19px] font-extrabold tracking-tight text-brand-deep">
             Mudiwala
           </span>
           <span className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">
-            <span lang="bn">মুদিওয়ালা</span> · Grocery
+            <span className={`inline-flex items-center gap-1 ${subtitleClassName}`}>
+              <span lang="bn">মুদিওয়ালা</span>
+              <span aria-hidden="true">·</span>
+              <span>Grocery</span>
+            </span>
           </span>
         </span>
       )}
