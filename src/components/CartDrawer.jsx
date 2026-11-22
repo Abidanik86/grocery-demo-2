@@ -190,9 +190,9 @@ export default function CartDrawer({
               <button
                 type="button"
                 onClick={onCheckout}
-                className="mt-3.5 w-full rounded-xl bg-action py-3 text-[14px] font-extrabold text-white shadow-lift transition-colors hover:bg-action-dark"
+                className="mt-3.5 w-full rounded-2xl bg-gradient-to-r from-action to-action-dark py-3.5 text-[14.5px] font-black text-white shadow-lift transition-all hover:scale-[1.01] active:scale-[0.99]"
               >
-                {copy.cart.checkout}
+                {copy.cart.checkout} • {taka(totals.total)}
               </button>
               <button
                 type="button"

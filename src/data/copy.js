@@ -341,9 +341,33 @@ export const AREAS = [
 ];
 
 export const DELIVERY_SLOTS = [
-  { id: 'today-pm', bn: 'আজ বিকাল ৪:০০ – ৬:০০', en: 'Today 4:00 PM – 6:00 PM' },
-  { id: 'today-night', bn: 'আজ রাত ৮:০০ – ১০:০০', en: 'Tonight 8:00 PM – 10:00 PM' },
-  { id: 'tomorrow-am', bn: 'আগামীকাল সকাল ৯:০০ – ১১:০০', en: 'Tomorrow 9:00 AM – 11:00 AM' },
+  {
+    id: 'today-pm',
+    bn: 'আজ বিকাল ৪:০০ – ৬:০০',
+    en: 'Today 4:00 PM – 6:00 PM',
+    bnShort: 'আজ বিকাল',
+    enShort: 'Today',
+    bnTime: '৪:০০ – ৬:০০',
+    enTime: '4–6 PM',
+  },
+  {
+    id: 'today-night',
+    bn: 'আজ রাত ৮:০০ – ১০:০০',
+    en: 'Tonight 8:00 PM – 10:00 PM',
+    bnShort: 'আজ রাত',
+    enShort: 'Tonight',
+    bnTime: '৮:০০ – ১০:০০',
+    enTime: '8–10 PM',
+  },
+  {
+    id: 'tomorrow-am',
+    bn: 'আগামীকাল সকাল ৯:০০ – ১১:০০',
+    en: 'Tomorrow 9:00 AM – 11:00 AM',
+    bnShort: 'আগামীকাল',
+    enShort: 'Tomorrow',
+    bnTime: '৯:০০ – ১১:০০',
+    enTime: '9–11 AM',
+  },
 ];
 
 export const PAYMENT_METHODS = [
@@ -351,6 +375,8 @@ export const PAYMENT_METHODS = [
     id: 'cod',
     bn: 'ক্যাশ অন ডেলিভারি',
     en: 'Cash on delivery',
+    bnShort: 'ক্যাশ',
+    enShort: 'Cash',
     bnSub: 'পণ্য হাতে পেয়ে টাকা দিন',
     enSub: 'Pay when the order arrives',
     icon: 'wallet',
@@ -359,6 +385,8 @@ export const PAYMENT_METHODS = [
     id: 'bkash',
     bn: 'বিকাশ',
     en: 'bKash',
+    bnShort: 'বিকাশ',
+    enShort: 'bKash',
     bnSub: 'সঙ্গে সঙ্গে পেমেন্ট করুন',
     enSub: 'Pay instantly from your wallet',
     icon: 'phone',
@@ -367,6 +395,8 @@ export const PAYMENT_METHODS = [
     id: 'card',
     bn: 'কার্ড',
     en: 'Card',
+    bnShort: 'কার্ড',
+    enShort: 'Card',
     bnSub: 'ভিসা, মাস্টারকার্ড ও অ্যামেক',
     enSub: 'Visa, Mastercard and Amex',
     icon: 'card',

@@ -26,6 +26,7 @@ export default function Header({
   onOpenWishlist,
   onOpenMenu,
   onOpenSearch,
+  onTrackOrder,
   onSearch,
   searchResults,
   searchQuery,
@@ -56,12 +57,16 @@ export default function Header({
   return (
     <header className="sticky top-0 z-40">
       {/* Announcement ticker */}
-      <div className="hidden bg-brand-deep text-white/85 md:block">
+      <div className="hidden bg-gradient-to-r from-brand-deep via-brand to-[#0d593d] text-white/95 md:block border-b border-white/10">
         <div className="shell flex h-9 items-center justify-between text-[11.5px]">
           <div className="flex items-center gap-5">
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 font-semibold">
+              <span className="flex h-2 w-2 rounded-full bg-amber-400 animate-ping" />
               <TruckIcon />
               {copy.topbar.freeShip}
+            </span>
+            <span className="hidden items-center gap-1.5 lg:flex text-amber-200 font-bold">
+              🎉 কুপন কোড: <span className="rounded bg-white/20 px-1.5 py-0.5 text-white">MUDI10</span> দিয়ে ১০% ছাড়!
             </span>
             <span className="hidden items-center gap-1.5 lg:flex">
               <ShieldMini />
@@ -76,13 +81,19 @@ export default function Header({
             <button
               type="button"
               onClick={onLangChange}
-              className="inline-flex items-center gap-1.5 rounded-full px-2 py-1 transition-colors hover:bg-white/10"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 font-bold text-amber-200 transition-colors hover:bg-white/25"
             >
               <Globe className="h-3.5 w-3.5" strokeWidth={2.2} />
               {copy.langToggle}
             </button>
-            <span className="hidden text-white/60 lg:inline">{copy.nav.trackOrder}</span>
-            <span className="hidden text-white/60 lg:inline">{copy.nav.help}</span>
+            <button
+              type="button"
+              onClick={onTrackOrder}
+              className="hidden text-white/80 hover:text-amber-200 transition-colors font-medium lg:inline"
+            >
+              {copy.nav.trackOrder}
+            </button>
+            <span className="hidden text-white/75 lg:inline">{copy.nav.help}</span>
           </div>
         </div>
       </div>
@@ -237,18 +248,18 @@ export default function Header({
             <button
               type="button"
               onClick={onOpenCart}
-              className="relative flex h-10 items-center gap-2 rounded-xl bg-action px-2.5 text-white shadow-soft transition-colors hover:bg-action-dark sm:px-3.5"
+              className="relative flex h-10 items-center gap-2 rounded-xl bg-gradient-to-r from-action to-action-dark px-3 text-white shadow-lift transition-all hover:scale-105 active:scale-95 sm:px-4"
               aria-label={copy.nav.cart}
             >
               <span className="relative">
-                <ShoppingCart className="h-[19px] w-[19px]" strokeWidth={2.3} />
+                <ShoppingCart className="h-[19px] w-[19px]" strokeWidth={2.4} />
                 {cartCount > 0 && (
-                  <span className="num absolute -right-2 -top-2 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-berry px-1 text-[10px] font-bold text-white ring-2 ring-action">
+                  <span className="num absolute -right-2.5 -top-2.5 grid h-5 min-w-5 place-items-center rounded-full bg-berry px-1 text-[10px] font-black text-white ring-2 ring-white shadow-sm animate-pulse-gentle">
                     {cartCount}
                   </span>
                 )}
               </span>
-              <span className="num hidden text-[13px] font-bold lg:inline">
+              <span className="num hidden text-[13.5px] font-black lg:inline">
                 {takaCompact(cartTotal)}
               </span>
             </button>

@@ -54,7 +54,7 @@ export default function FeaturedTabs({
           </button>
         </div> */}
 
-        <div className="no-scrollbar mt-5 flex gap-2 overflow-x-auto pb-1">
+        <div className="no-scrollbar mt-5 flex gap-2.5 overflow-x-auto pb-1.5">
           {TABS.map((tab) => {
             const isActive = tab.id === active;
             const count = TAB_COUNTS[tab.id] ?? 0;
@@ -63,16 +63,16 @@ export default function FeaturedTabs({
                 key={tab.id}
                 type="button"
                 onClick={() => setActive(tab.id)}
-                className={`flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2.5 text-[13px] font-bold transition-all ${
+                className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2.5 text-[13px] font-bold transition-all ${
                   isActive
-                    ? 'bg-brand text-white shadow-soft'
-                    : 'border border-line bg-surface text-ink/80 hover:border-brand/40 hover:text-brand'
+                    ? 'bg-gradient-to-r from-brand to-brand-light text-white shadow-lift scale-[1.02]'
+                    : 'border border-line/80 bg-surface text-ink/80 hover:border-brand/40 hover:text-brand'
                 }`}
               >
-                <span className="text-[15px]">{CATEGORY_ICONS[tab.icon]}</span>
-                {lang === 'bn' ? tab.bn : tab.en}
+                <span className="text-[17px]">{CATEGORY_ICONS[tab.icon]}</span>
+                <span>{lang === 'bn' ? tab.bn : tab.en}</span>
                 <span
-                  className={`num rounded-full px-1.5 py-0.5 text-[10.5px] ${
+                  className={`num rounded-full px-2 py-0.5 text-[11px] font-extrabold ${
                     isActive ? 'bg-white/20 text-white' : 'bg-line-soft text-muted'
                   }`}
                 >

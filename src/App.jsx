@@ -165,7 +165,7 @@ export default function App() {
   const handlePlaceOrder = useCallback(
     (details) => {
       const id = `#MW-${Math.floor(100000 + Math.random() * 899999)}`;
-      setOrder({ ...details, id, total: totals.total, itemCount: totals.itemCount });
+      setOrder({ ...details, id, total: details.total ?? totals.total, itemCount: totals.itemCount });
       clear();
       setCartOpen(false);
       setOrderOpen(false);
@@ -173,6 +173,27 @@ export default function App() {
     },
     [clear, copy.toast.orderPlaced, showToast, totals.total, totals.itemCount],
   );
+
+  const handleOpenTracking = useCallback(() => {
+    if (!order) {
+      setOrder({
+        id: '#MW-748291',
+        name: 'সাকিব হাসান',
+        phone: '০১৭৯৯-৬৮৩৪৯২',
+        address: 'রোড ৭, বাড়ি ১৫, ধানমন্ডি',
+        area: 'dhanmondi',
+        slot: 'today-pm',
+        payment: 'bkash',
+        mfsProvider: 'bkash',
+        total: 580,
+        itemCount: 3,
+        items: [
+          { name: 'মিনিকেট চাল (প্রিমিয়াম)', variantName: '৫ কেজি', price: 375, qty: 1, image: '/images/products/cabbage.jpg' },
+          { name: 'ফুল ক্রিম তরল দুধ', variantName: '১ লিটার', price: 98, qty: 2, image: '/images/products/peas.jpg' },
+        ],
+      });
+    }
+  }, [order]);
 
   const wishlistProducts = useMemo(
     () => wishlist.map((id) => productById(id)).filter(Boolean),
@@ -189,7 +210,12 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-canvas pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0">
+    <div className="min-h-screen bg-canvas pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0 relative overflow-hidden">
+      {/* Satisfying ambient background glowing orbs */}
+      <div className="pointer-events-none fixed -top-24 -left-24 h-96 w-96 rounded-full bg-emerald-400/[0.07] blur-3xl animate-float-slow" />
+      <div className="pointer-events-none fixed top-1/3 -right-24 h-96 w-96 rounded-full bg-amber-400/[0.07] blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
+      <div className="pointer-events-none fixed bottom-1/4 -left-24 h-96 w-96 rounded-full bg-teal-400/[0.06] blur-3xl animate-float-slow" style={{ animationDelay: '4s' }} />
+
       <Header
         copy={copy}
         lang={lang}
@@ -204,6 +230,7 @@ export default function App() {
         onOpenWishlist={() => (isMobile ? changeTab('account') : setWishOpen(true))}
         onOpenMenu={() => setMenuOpen(true)}
         onOpenSearch={() => (isMobile ? changeTab('search') : undefined)}
+        onTrackOrder={handleOpenTracking}
         onSearch={handleSearch}
         searchResults={searchResults}
         searchQuery={searchQuery}
@@ -397,6 +424,7 @@ export default function App() {
         open={orderOpen}
         onClose={() => setOrderOpen(false)}
         totals={totals}
+        detailedItems={totals.detailed}
         area={area}
         onAreaChange={setArea}
         onPlaceOrder={handlePlaceOrder}

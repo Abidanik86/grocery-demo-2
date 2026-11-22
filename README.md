@@ -26,11 +26,12 @@ npm run preview  # serve the production build
 | **Hero slider** | Autoplay (6 s) with progress bar, arrows, dots, keyboard arrows, touch swipe and a Ken Burns drift. Pauses on hover. Heights scale fluidly from 230 px on a 320 px phone to 520 px on a desktop. Each slide carries a scrim-backed copy overlay with a CTA. |
 | **Cart** | Sliding drawer with quantity steppers, remove, free-delivery progress meter, subtotal, delivery charge and total. Persists to `localStorage`. |
 | **Checkout** | Delivery slot, address form, area picker, three payment methods, then an order-confirmation modal. |
-| **Quick view** | Modal with large photo, variant picker, stock badge and quantity controls. |
+| **Quick view** | Modal with large photo, variant picker, stock badge and quantity controls. On phones the photo shrinks to a 16:10 band and the add-to-cart button moves into a sticky bar so it is never below the fold. |
 | **Wishlist** | Toggle from any card or quick view; separate drawer with add-to-cart. |
 | **Search** | Live results in the header for both Bengali and English names. |
 | **Bilingual** | Full Bengali ⇄ English switch. Bengali copy uses the self-hosted Nikosh font (see *Fonts* below). |
 | **Responsive** | Desktop mega-menu and grids below `lg`; phones get a five-tab app shell. |
+| **Checkout** | Delivery slot, address form, area picker, three payment methods, then an order-confirmation modal. The form scrolls under a sticky footer so *Place order* is always in reach. |
 
 ## Responsive layout
 
@@ -53,6 +54,12 @@ Supporting details:
   hover-only (quick view, wishlist, add to cart) are permanently visible on
   touch layouts, where they move into the card body instead of floating over
   the product photo.
+- **Sticky actions** — the quick view and the checkout form both keep their
+  primary button pinned to the bottom of the sheet, so nothing important sits
+  below the fold on a short screen.
+- **Compact forms** — delivery slots and payment methods collapse to a
+  single row of three tiles on phones, using short labels (`আজ বিকাল` /
+  `৪:০০ – ৬:০০`, `ক্যাশ`) with the full wording kept for wider screens.
 - **Fluid grids** — the product grid and rails reflow from 2 columns on a
   320 px phone to 4 on a tablet, and the rail cards track the viewport width
   rather than a fixed pixel size.

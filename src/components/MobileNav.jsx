@@ -68,17 +68,17 @@ export function FloatingCartPill({ copy, totals, onOpenCart }) {
     <button
       type="button"
       onClick={onOpenCart}
-      className="safe-bottom-full fixed bottom-[74px] left-1/2 z-40 flex max-w-[calc(100vw-2rem)] -translate-x-1/2 items-center gap-2.5 rounded-full bg-brand px-5 py-3 text-white shadow-lift transition-transform active:scale-95 lg:hidden"
+      className="safe-bottom-full fixed bottom-[74px] left-1/2 z-40 flex max-w-[calc(100vw-2rem)] -translate-x-1/2 items-center gap-2.5 rounded-full bg-gradient-to-r from-brand via-brand-light to-brand px-5 py-3 text-white shadow-lift ring-2 ring-white/30 transition-all active:scale-95 lg:hidden"
     >
       <span className="relative">
         <ShoppingCart className="h-[19px] w-[19px]" strokeWidth={2.4} />
-        <span className="num absolute -right-2 -top-2 grid h-[17px] min-w-[17px] place-items-center rounded-full bg-action px-1 text-[10px] font-bold text-white">
+        <span className="num absolute -right-2 -top-2 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-berry px-1 text-[10px] font-black text-white shadow-sm ring-1 ring-white">
           {totals.itemCount}
         </span>
       </span>
-      <span className="num text-[13.5px] font-extrabold">{taka(totals.total)}</span>
+      <span className="num text-[14px] font-black">{taka(totals.total)}</span>
       <span className="h-4 w-px bg-white/25" />
-      <span className="text-[12.5px] font-bold">{copy.cart.checkout}</span>
+      <span className="text-[13px] font-extrabold text-amber-200">{copy.cart.checkout}</span>
     </button>
   );
 }

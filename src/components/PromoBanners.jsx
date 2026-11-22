@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import { PROMO_BANNERS } from '../data/catalog';
 
 const TONES = {
-  lime: 'from-lime/90 to-lime/40',
-  turmeric: 'from-turmeric/90 to-turmeric/40',
+  lime: 'from-emerald-950/90 via-emerald-800/75 to-lime-600/40',
+  turmeric: 'from-orange-950/90 via-amber-800/75 to-orange-500/40',
 };
 
 export default function PromoBanners({ copy, lang }) {

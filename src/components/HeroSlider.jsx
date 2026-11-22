@@ -129,26 +129,31 @@ export default function HeroSlider({ copy, lang, onShop }) {
  */
 function SlideContent({ slide, copy, lang, onShop }) {
   return (
-    <div className="absolute inset-0 z-[5] flex items-end bg-gradient-to-t from-brand-deep/90 via-brand-deep/45 to-transparent">
-      <div className="shell w-full pb-9 sm:pb-11">
-        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#ffd489] sm:text-[11.5px]">
-          {lang === 'bn' ? slide.eyebrow.bn : slide.eyebrow.en}
-        </p>
+    <div className="absolute inset-0 z-[5] flex items-end bg-gradient-to-t from-brand-deep/95 via-brand-deep/50 to-transparent">
+      <div className="shell w-full pb-8 sm:pb-12">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-soft sm:text-[11px]">
+            ⚡ {lang === 'bn' ? slide.eyebrow.bn : slide.eyebrow.en}
+          </span>
+          <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md px-2.5 py-1 text-[11px] font-bold text-white">
+            🌱 ১০০% ভেজালমুক্ত
+          </span>
+        </div>
 
-        <h2 className="mt-1 max-w-[18ch] text-[19px] font-extrabold leading-[1.2] text-white sm:mt-1.5 sm:max-w-[22ch] sm:text-[30px] lg:max-w-[24ch] lg:text-[38px]">
+        <h2 className="mt-2 max-w-[18ch] text-[20px] font-black leading-[1.18] text-white sm:mt-2.5 sm:max-w-[22ch] sm:text-[32px] lg:max-w-[24ch] lg:text-[42px] drop-shadow-md">
           {lang === 'bn' ? slide.title.bn : slide.title.en}
         </h2>
 
-        <p className="mt-1.5 hidden max-w-[52ch] text-[13.5px] leading-relaxed text-white/80 sm:block">
+        <p className="mt-2 hidden max-w-[52ch] text-[14px] leading-relaxed text-white/90 sm:block drop-shadow">
           {lang === 'bn' ? slide.text.bn : slide.text.en}
         </p>
 
         <button
           type="button"
           onClick={onShop}
-          className="mt-3 inline-flex min-h-[40px] items-center gap-1.5 rounded-xl bg-action px-4 text-[12.5px] font-extrabold text-white shadow-lift transition-colors hover:bg-action-dark sm:mt-4 sm:min-h-[46px] sm:px-6 sm:text-[14px]"
+          className="mt-3.5 inline-flex min-h-[42px] items-center gap-2 rounded-2xl bg-gradient-to-r from-action via-mango to-action-dark px-5 text-[13px] font-black text-white shadow-lift transition-all hover:scale-105 active:scale-95 sm:mt-4 sm:min-h-[48px] sm:px-7 sm:text-[14.5px]"
         >
-          {lang === 'bn' ? slide.cta.bn : slide.cta.en}
+          <span>{lang === 'bn' ? slide.cta.bn : slide.cta.en}</span>
           <ArrowRight className="h-4 w-4" strokeWidth={2.7} />
         </button>
       </div>
