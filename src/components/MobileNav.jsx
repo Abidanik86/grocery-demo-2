@@ -18,10 +18,10 @@ export function MobileNav({ copy, activeTab, onTabChange, cartCount, wishlistCou
 
   return (
     <nav
-      className="safe-bottom-full fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/97 backdrop-blur lg:hidden"
+      className="safe-bottom-full fixed inset-x-0 bottom-0 z-40 border-t border-line/80 bg-surface/96 backdrop-blur-md shadow-[0_-8px_30px_rgba(0,0,0,0.08)] lg:hidden"
       aria-label={copy.nav.menu}
     >
-      <ul className="flex items-stretch">
+      <ul className="flex items-stretch px-1">
         {tabs.map((tab) => {
           const active = activeTab === tab.id;
           const Icon = tab.icon;
@@ -32,24 +32,41 @@ export function MobileNav({ copy, activeTab, onTabChange, cartCount, wishlistCou
                 type="button"
                 onClick={() => onTabChange(tab.id)}
                 aria-current={active ? 'page' : undefined}
-                className={`relative flex min-h-[54px] w-full flex-col items-center justify-center gap-1 py-2 transition-colors ${
-                  active ? 'text-brand' : 'text-muted'
-                }`}
+                className="group relative flex min-h-[58px] w-full flex-col items-center justify-center py-1.5 transition-all duration-200 active:scale-95"
               >
+                {/* Top glow indicator */}
                 {active && (
-                  <span className="absolute inset-x-4 top-0 h-[3px] rounded-b-full bg-action" />
+                  <span className="absolute top-0.5 h-1 w-7 rounded-full bg-gradient-to-r from-emerald-500 via-[#f07b1a] to-emerald-500 shadow-xs animate-pulse-gentle" />
                 )}
-                <span className="relative">
+
+                {/* Animated Icon Bubble */}
+                <span
+                  className={`relative grid h-8 w-11 place-items-center rounded-2xl transition-all duration-300 ${
+                    active
+                      ? 'bg-gradient-to-tr from-emerald-100 via-emerald-50 to-teal-100 text-brand-deep shadow-xs ring-1 ring-emerald-300/50 scale-105 -translate-y-0.5 animate-bounce-micro'
+                      : 'text-gray-500 group-hover:text-gray-800 group-hover:scale-105'
+                  }`}
+                >
                   <Icon
-                    className={`h-[21px] w-[21px] ${active ? 'stroke-[2.5]' : 'stroke-[2]'}`}
+                    className={`h-[22px] w-[22px] transition-transform duration-200 ${
+                      active ? 'stroke-[2.7] text-emerald-700' : 'stroke-[2]'
+                    }`}
                   />
                   {badge > 0 && (
-                    <span className="num absolute -right-2 -top-1.5 grid h-[17px] min-w-[17px] place-items-center rounded-full bg-berry px-1 text-[10px] font-bold text-white">
+                    <span className="num absolute -right-1 -top-1.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-gradient-to-r from-rose-500 to-pink-600 px-1 text-[10.5px] font-black text-white shadow-sm ring-2 ring-white">
                       {badge > 99 ? '99+' : badge}
                     </span>
                   )}
                 </span>
-                <span className="max-w-full truncate px-0.5 text-[10px] font-semibold">
+
+                {/* Bangla Label with Increased Font Size */}
+                <span
+                  className={`mt-0.5 max-w-full truncate px-0.5 text-[12px] sm:text-[12.5px] tracking-tight transition-all duration-200 ${
+                    active
+                      ? 'font-black text-emerald-800 scale-[1.03]'
+                      : 'font-bold text-gray-500 group-hover:text-gray-800'
+                  }`}
+                >
                   {tab.label}
                 </span>
               </button>

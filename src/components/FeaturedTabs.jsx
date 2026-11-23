@@ -64,16 +64,18 @@ export default function FeaturedTabs({
                 key={tab.id}
                 type="button"
                 onClick={() => setActive(tab.id)}
-                className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2.5 text-[14px] sm:text-[14.5px] font-black transition-all ${isActive
-                  ? 'bg-gradient-to-r from-brand to-brand-light text-white shadow-lift scale-[1.02]'
-                  : 'border border-line/80 bg-surface text-ink/80 hover:border-brand/40 hover:text-brand'
-                  }`}
+                className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2.5 text-[15.5px] sm:text-[16.5px] font-black transition-all ${
+                  isActive
+                    ? 'bg-gradient-to-r from-brand to-brand-light text-white shadow-lift scale-[1.02]'
+                    : 'border border-line/80 bg-surface text-ink/85 hover:border-brand/40 hover:text-brand'
+                }`}
               >
-                <span className="text-[17px]">{CATEGORY_ICONS[tab.icon]}</span>
-                <span>{lang === 'bn' ? tab.bn : tab.en}</span>
+                <span className="text-[19px]">{CATEGORY_ICONS[tab.icon]}</span>
+                <span className="tracking-tight">{lang === 'bn' ? tab.bn : tab.en}</span>
                 <span
-                  className={`num rounded-full px-2 py-0.5 text-[11.5px] font-extrabold ${isActive ? 'bg-white/20 text-white' : 'bg-line-soft text-muted'
-                    }`}
+                  className={`num rounded-full px-2.5 py-0.5 text-[12px] font-black ${
+                    isActive ? 'bg-white/25 text-white' : 'bg-line-soft text-muted'
+                  }`}
                 >
                   {count}
                 </span>

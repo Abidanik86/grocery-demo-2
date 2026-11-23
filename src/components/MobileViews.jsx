@@ -98,14 +98,14 @@ export function MobileHome({
               onClick={() => onOpenCategories(category.id)}
               className="flex items-center gap-2.5 rounded-2xl border border-line bg-surface p-3 text-left shadow-soft transition-colors active:bg-action-soft"
             >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-art text-[20px]">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-art text-[22px]">
                 {CATEGORY_ICONS[category.icon]}
               </span>
               <span className="min-w-0">
-                <span className="block truncate text-[13.5px] font-black text-ink">
+                <span className="block truncate text-[15px] font-black text-ink">
                   {lang === 'bn' ? category.bn : category.en}
                 </span>
-                <span className="num block text-[11px] font-medium text-muted">
+                <span className="num block text-[12px] font-bold text-muted">
                   {CATEGORY_COUNTS[category.id]} {copy.mobile.inCategory}
                 </span>
               </span>
@@ -201,14 +201,14 @@ function FeaturedRail({
               key={tab.id}
               type="button"
               onClick={() => setActive(tab.id)}
-              className={`flex shrink-0 items-center gap-1.5 rounded-2xl px-3.5 py-2 text-[13px] font-black transition-all ${
+              className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2.5 text-[15px] sm:text-[16px] font-black transition-all ${
                 isActive
                   ? 'bg-brand text-white shadow-soft scale-[1.02]'
-                  : 'border border-line bg-surface text-ink/80'
+                  : 'border border-line bg-surface text-ink/85'
               }`}
             >
-              <span className="text-[16px]">{CATEGORY_ICONS[tab.icon]}</span>
-              {lang === 'bn' ? tab.bn : tab.en}
+              <span className="text-[18px]">{CATEGORY_ICONS[tab.icon]}</span>
+              <span>{lang === 'bn' ? tab.bn : tab.en}</span>
             </button>
           );
         })}
@@ -273,16 +273,16 @@ export function MobileCategories({
                 key={category.id}
                 type="button"
                 onClick={() => onCategoryChange(category.id)}
-                className={`flex shrink-0 items-center gap-1.5 rounded-xl px-3 py-2 text-[12.5px] font-bold transition-colors ${
+                className={`flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2 text-[14.5px] font-black transition-colors ${
                   isActive
                     ? 'bg-brand text-white shadow-soft'
-                    : 'border border-line bg-surface text-ink/80'
+                    : 'border border-line bg-surface text-ink/85'
                 }`}
               >
-                <span className="text-[14px]">{CATEGORY_ICONS[category.icon]}</span>
-                {lang === 'bn' ? category.bn : category.en}
+                <span className="text-[16px]">{CATEGORY_ICONS[category.icon]}</span>
+                <span>{lang === 'bn' ? category.bn : category.en}</span>
                 <span
-                  className={`num rounded-full px-1.5 py-0.5 text-[10px] ${
+                  className={`num rounded-full px-2 py-0.5 text-[11px] font-black ${
                     isActive ? 'bg-white/20 text-white' : 'bg-line-soft text-muted'
                   }`}
                 >

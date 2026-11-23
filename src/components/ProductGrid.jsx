@@ -117,16 +117,16 @@ export default function ProductGrid({
                   onCategoryChange(category.id);
                   setVisible(PAGE_SIZE);
                 }}
-                className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2 text-[13px] font-bold transition-all ${
+                className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2.5 text-[15px] sm:text-[16px] font-black transition-all ${
                   active
                     ? 'bg-gradient-to-r from-brand to-brand-light text-white shadow-lift scale-[1.02]'
-                    : 'border border-line/80 bg-surface text-ink/80 hover:border-brand/40 hover:text-brand'
+                    : 'border border-line/80 bg-surface text-ink/85 hover:border-brand/40 hover:text-brand'
                 }`}
               >
-                <span className="text-[15px]">{CATEGORY_ICONS[category.icon]}</span>
-                {lang === 'bn' ? category.bn : category.en}
+                <span className="text-[18px]">{CATEGORY_ICONS[category.icon]}</span>
+                <span>{lang === 'bn' ? category.bn : category.en}</span>
                 <span
-                  className={`num rounded-full px-2 py-0.5 text-[10.5px] font-black ${
+                  className={`num rounded-full px-2.5 py-0.5 text-[12px] font-black ${
                     active ? 'bg-white/20 text-white' : 'bg-line-soft text-muted'
                   }`}
                 >

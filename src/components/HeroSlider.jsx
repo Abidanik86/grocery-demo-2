@@ -99,8 +99,8 @@ export default function HeroSlider({ copy, lang, onShop }) {
               >
                 <span
                   className={`block h-2.5 rounded-full transition-all duration-300 ${active
-                      ? 'w-7 sm:w-8 bg-[#f07b1a] shadow-sm ring-1 ring-white/40'
-                      : 'w-2.5 bg-white/60 hover:bg-white/90 hover:scale-110'
+                    ? 'w-7 sm:w-8 bg-[#f07b1a] shadow-sm ring-1 ring-white/40'
+                    : 'w-2.5 bg-white/60 hover:bg-white/90 hover:scale-110'
                     }`}
                 />
               </button>
@@ -119,16 +119,6 @@ function SlideContent({ slide, copy, lang, onShop }) {
   return (
     <div className="absolute inset-0 z-[5] flex items-end bg-gradient-to-t from-brand-deep/95 via-brand-deep/50 to-transparent">
       <div className="shell w-full pb-10 sm:pb-14">
-        {/* Eyebrow badge */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3.5 py-1 text-[12.5px] sm:text-[14px] font-black uppercase tracking-wider text-white shadow-soft">
-            ⚡ {lang === 'bn' ? slide.eyebrow.bn : slide.eyebrow.en}
-          </span>
-          <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-[13px] font-black text-white">
-            🌱 ১০০% ভেজালমুক্ত
-          </span>
-        </div>
-
         {/* Main headline with increased font size */}
         <h2 className="mt-2.5 max-w-[22ch] text-[26px] xs:text-[30px] sm:text-[38px] lg:text-[48px] font-black leading-[1.2] text-white drop-shadow-md">
           {lang === 'bn' ? slide.title.bn : slide.title.en}
