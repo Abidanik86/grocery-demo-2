@@ -11,7 +11,7 @@ export default function Logo({
         <img
           src="/favicon.svg"
           alt="Mudiwala"
-          className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 object-contain drop-shadow-xs transition-transform hover:scale-105"
+          className="h-11 w-11 sm:h-12 sm:w-12 shrink-0 object-contain drop-shadow-xs transition-transform hover:scale-105"
         />
       </span>
     );
@@ -19,11 +19,11 @@ export default function Logo({
 
   return (
     <span className={`inline-flex items-center ${className}`}>
-      {/* Big Logo: banner-logo.svg on light background, banner-logo-dark.svg on dark footer */}
+      {/* Big prominent logo: increased scale with tight bounding box for maximum visibility */}
       <img
-        src={dark ? '/banner-logo.svg' : '/banner-logo.svg'}
+        src={dark ? '/banner-logo-dark.svg' : '/banner-logo.svg'}
         alt="Mudiwala.com"
-        className="h-8.5 xs:h-9.5 sm:h-11 lg:h-12 w-auto object-contain transition-transform duration-200 hover:scale-102"
+        className="h-11 xs:h-12 sm:h-14 lg:h-16 w-auto object-contain transition-transform duration-200 hover:scale-102"
         loading="eager"
       />
     </span>
