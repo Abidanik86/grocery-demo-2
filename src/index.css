@@ -379,6 +379,52 @@
   transform: translateX(260%) skewX(-20deg);
 }
 
+/*
+ * Brand Logo sizing - controlled centrally from CSS as requested
+ */
+.brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+@media (min-width: 420px) {
+  .brand-logo {
+    height: 54px;
+  }
+}
+
+@media (min-width: 768px) {
+  .brand-logo {
+    height: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .brand-logo {
+    height: 72px;
+  }
+}
+
+.brand-logo:hover {
+  transform: scale(1.025);
+}
+
+.brand-logo-compact {
+  height: 46px;
+  width: 46px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .brand-logo-compact {
+    height: 52px;
+    width: 52px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
