@@ -45,7 +45,7 @@ export default function HeroSlider({ copy, lang, onShop }) {
     <section id="hero" className="relative bg-canvas">
       {/* --------------------------------------------------------- slides */}
       <div
-        className="relative h-[clamp(320px,88vw,420px)] overflow-hidden bg-brand-deep sm:h-[clamp(380px,52vw,460px)] lg:h-[clamp(440px,42vw,540px)]"
+        className="relative h-[clamp(210px,58vw,270px)] sm:h-[clamp(300px,44vw,390px)] lg:h-[clamp(380px,34vw,470px)] overflow-hidden bg-brand-deep"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onTouchStart={onTouchStart}
@@ -85,7 +85,7 @@ export default function HeroSlider({ copy, lang, onShop }) {
         </button>
 
         {/* Slide Indicators: Clean, modern pills without any overlap or distortion */}
-        <div className="absolute inset-x-0 bottom-3 z-10 flex items-center justify-center gap-2 sm:bottom-4 sm:gap-2.5">
+        <div className="absolute inset-x-0 bottom-2.5 sm:bottom-4 z-10 flex items-center justify-center gap-1.5 sm:gap-2.5">
           {SLIDES.map((item, slideIndex) => {
             const active = slideIndex === index;
             return (
@@ -93,14 +93,14 @@ export default function HeroSlider({ copy, lang, onShop }) {
                 key={item.id}
                 type="button"
                 onClick={() => go(slideIndex)}
-                className="flex h-6 items-center justify-center p-1 transition-all focus:outline-none"
+                className="flex h-5 sm:h-6 items-center justify-center p-1 transition-all focus:outline-none"
                 aria-label={`${copy.hero.dots} ${slideIndex + 1}`}
                 aria-current={active}
               >
                 <span
-                  className={`block h-2.5 rounded-full transition-all duration-300 ${active
-                    ? 'w-7 sm:w-8 bg-[#f07b1a] shadow-sm ring-1 ring-white/40'
-                    : 'w-2.5 bg-white/60 hover:bg-white/90 hover:scale-110'
+                  className={`block h-2 sm:h-2.5 rounded-full transition-all duration-300 ${active
+                    ? 'w-6 sm:w-8 bg-[#f07b1a] shadow-sm ring-1 ring-white/40'
+                    : 'w-2 sm:w-2.5 bg-white/60 hover:bg-white/90 hover:scale-110'
                     }`}
                 />
               </button>
@@ -113,27 +113,29 @@ export default function HeroSlider({ copy, lang, onShop }) {
 }
 
 /**
- * Slide copy overlay with increased font sizes and generous padding.
+ * Slide copy overlay with horizontal gradient to preserve right-side image context.
  */
 function SlideContent({ slide, copy, lang, onShop }) {
   return (
-    <div className="absolute inset-0 z-[5] flex items-end bg-gradient-to-t from-brand-deep/95 via-brand-deep/50 to-transparent">
-      <div className="shell w-full pb-10 sm:pb-14">
-        {/* Main headline with increased font size */}
-        <h2 className="mt-2.5 max-w-[22ch] text-[26px] xs:text-[30px] sm:text-[38px] lg:text-[48px] font-black leading-[1.2] text-white drop-shadow-md">
+    <div className="absolute inset-0 z-[5] flex items-center sm:items-end bg-gradient-to-r from-brand-deep/95 via-brand-deep/85 sm:via-brand-deep/60 to-transparent">
+      <div className="shell w-full pb-6 sm:pb-12 pt-1 sm:pt-0">
+        {/* Eyebrow badge */}
+
+        {/* Main headline - balanced proportions on mobile */}
+        <h2 className="mt-1.5 sm:mt-2.5 max-w-[17ch] sm:max-w-[22ch] text-[20px] xs:text-[23px] sm:text-[36px] lg:text-[46px] font-black leading-[1.2] text-white drop-shadow-md">
           {lang === 'bn' ? slide.title.bn : slide.title.en}
         </h2>
 
         {/* Subtext */}
-        <p className="mt-2 hidden max-w-[52ch] text-[15.5px] sm:text-[17.5px] leading-relaxed text-white/95 sm:block drop-shadow font-medium">
+        <p className="mt-2 hidden max-w-[52ch] text-[15px] sm:text-[17px] leading-relaxed text-white/95 sm:block drop-shadow font-medium">
           {lang === 'bn' ? slide.text.bn : slide.text.en}
         </p>
 
-        {/* CTA Button with larger text and comfortable touch height */}
+        {/* CTA Button */}
         <button
           type="button"
           onClick={onShop}
-          className="mt-3.5 inline-flex min-h-[48px] items-center gap-2.5 rounded-2xl bg-gradient-to-r from-action via-mango to-action-dark px-7 text-[15.5px] sm:text-[17px] font-black text-white shadow-lift transition-all hover:scale-105 active:scale-95 sm:mt-4 sm:min-h-[52px] sm:px-9"
+          className="mt-2.5 sm:mt-4 inline-flex min-h-[38px] sm:min-h-[48px] items-center gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-action via-mango to-action-dark px-5 sm:px-7 text-[13.5px] sm:text-[16px] font-black text-white shadow-lift transition-all hover:scale-105 active:scale-95"
         >
           <span>{lang === 'bn' ? slide.cta.bn : slide.cta.en}</span>
           <ArrowRight className="h-4 w-4" strokeWidth={2.8} />
@@ -159,7 +161,8 @@ function HeroImage({ slide, active, eager }) {
     <img
       src={slide.image}
       alt=""
-      className={`absolute inset-0 h-full w-full object-cover ${active ? 'animate-kenburns' : ''}`}
+      className={`absolute inset-0 h-full w-full object-cover object-[72%_center] sm:object-center ${active ? 'sm:animate-kenburns' : ''
+        }`}
       loading={eager ? 'eager' : 'lazy'}
       onError={() => setFailed(true)}
     />
