@@ -68,18 +68,18 @@ export default function Footer({ copy, lang }) {
         <div className="shell py-8 sm:py-10">
           <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-xl">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/15 px-3 py-1 text-[11px] font-bold text-amber-300 ring-1 ring-amber-400/25">
-                <Sparkles className="h-3 w-3" />
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/15 px-3.5 py-1 text-[13px] font-bold text-amber-300 ring-1 ring-amber-400/25">
+                <Sparkles className="h-4 w-4" />
                 {lang === 'bn' ? 'বিশেষ অফার ও ডিসকাউন্ট' : 'Special Offers & News'}
               </span>
-              <h2 className="mt-2 text-[20px] font-black leading-tight text-white sm:text-[25px]">
+              <h2 className="mt-2 text-[24px] font-black leading-tight text-white sm:text-[30px]">
                 {copy.newsletter.title}
               </h2>
-              <p className="mt-1 text-[13px] text-white/70">{copy.newsletter.text}</p>
+              <p className="mt-1.5 text-[15px] text-white/80 font-medium">{copy.newsletter.text}</p>
             </div>
 
             {subscribed ? (
-              <div className="flex items-center gap-2 rounded-2xl bg-emerald-500/20 px-5 py-3.5 text-[13.5px] font-bold text-emerald-300 ring-1 ring-emerald-500/40">
+              <div className="flex items-center gap-2.5 rounded-2xl bg-emerald-500/20 px-6 py-4 text-[15px] font-black text-emerald-300 ring-1 ring-emerald-500/40">
                 <Check className="h-5 w-5" />
                 <span>{copy.newsletter.done}</span>
               </div>
@@ -93,7 +93,7 @@ export default function Footer({ copy, lang }) {
               >
                 <div className="relative flex-1">
                   <Mail
-                    className="pointer-events-none absolute left-3.5 top-1/2 h-[17px] w-[17px] -translate-y-1/2 text-white/50"
+                    className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-white/50"
                     strokeWidth={2.2}
                   />
                   <input
@@ -102,12 +102,12 @@ export default function Footer({ copy, lang }) {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder={copy.newsletter.placeholder}
-                    className="h-12 w-full rounded-2xl border border-white/20 bg-white/10 pl-10 pr-3.5 text-[13.5px] text-white outline-none transition-all placeholder:text-white/45 focus:border-[#f07b1a] focus:bg-white/15 focus:ring-2 focus:ring-[#f07b1a]/30"
+                    className="h-12 w-full rounded-2xl border border-white/20 bg-white/10 pl-11 pr-4 text-[14.5px] text-white outline-none transition-all placeholder:text-white/45 focus:border-[#f07b1a] focus:bg-white/15 focus:ring-2 focus:ring-[#f07b1a]/30"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex h-12 shrink-0 items-center gap-2 rounded-2xl bg-[#f07b1a] px-5 text-[13.5px] font-black text-white shadow-lift transition-all hover:bg-[#d96b13] active:scale-95"
+                  className="inline-flex h-12 shrink-0 items-center gap-2 rounded-2xl bg-[#f07b1a] px-6 text-[15px] font-black text-white shadow-lift transition-all hover:bg-[#d96b13] active:scale-95"
                 >
                   <Send className="h-4 w-4" strokeWidth={2.4} />
                   <span className="hidden sm:inline">{copy.newsletter.cta}</span>
@@ -119,28 +119,28 @@ export default function Footer({ copy, lang }) {
       </div>
 
       {/* Main Footer Content Grid */}
-      <div className="shell py-10 sm:py-12">
+      <div className="shell py-10 sm:py-14">
         <div className="grid gap-8 lg:grid-cols-12">
           {/* Brand & Contact Info */}
           <div className="lg:col-span-4">
             <Logo dark />
-            <p className="mt-3.5 max-w-sm text-[13px] leading-relaxed text-white/70">
+            <p className="mt-3.5 max-w-sm text-[15px] leading-relaxed text-white/80 font-medium">
               {copy.footer.about}
             </p>
 
-            <ul className="mt-4 space-y-2.5 text-[12.5px] text-white/75">
+            <ul className="mt-4 space-y-3 text-[14.5px] text-white/85 font-medium">
               <li className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 shrink-0 text-[#f07b1a] mt-0.5" strokeWidth={2.4} />
+                <MapPin className="h-4.5 w-4.5 shrink-0 text-[#f07b1a] mt-0.5" strokeWidth={2.4} />
                 <span>{lang === 'bn' ? 'বাড়ি ১২, রোড ৫, ধানমন্ডি, ঢাকা ১২০৫' : 'House 12, Road 5, Dhanmondi, Dhaka 1205'}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-[#f07b1a]" strokeWidth={2.4} />
-                <span className="num font-semibold">০১৬১১-০০০০০০</span>
+                <Phone className="h-4.5 w-4.5 shrink-0 text-[#f07b1a]" strokeWidth={2.4} />
+                <span className="num font-bold text-[15.5px] text-white">০১৬১১-০০০০০০</span>
               </li>
             </ul>
 
             <div className="mt-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/50">
+              <p className="text-[13px] font-black uppercase tracking-[0.14em] text-white/60">
                 {copy.footer.follow}
               </p>
               <ul className="mt-2.5 flex gap-2">
@@ -149,9 +149,9 @@ export default function Footer({ copy, lang }) {
                     <a
                       href="#top"
                       aria-label={label}
-                      className="grid h-9 w-9 place-items-center rounded-xl bg-white/10 text-white/80 ring-1 ring-inset ring-white/15 transition-all hover:bg-[#f07b1a] hover:text-white hover:scale-105"
+                      className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white/85 ring-1 ring-inset ring-white/15 transition-all hover:bg-[#f07b1a] hover:text-white hover:scale-105"
                     >
-                      <Icon className="h-4 w-4" strokeWidth={2.2} />
+                      <Icon className="h-4.5 w-4.5" strokeWidth={2.2} />
                     </a>
                   </li>
                 ))}
@@ -163,15 +163,15 @@ export default function Footer({ copy, lang }) {
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:col-span-5">
             {columns.map((column) => (
               <div key={column.title} className="flex flex-col">
-                <h3 className="text-[13px] font-black uppercase tracking-wider text-white border-b border-white/15 pb-2">
+                <h3 className="text-[16px] sm:text-[17px] font-black uppercase tracking-wider text-white border-b border-white/20 pb-2.5">
                   {column.title}
                 </h3>
-                <ul className="mt-3 space-y-2">
+                <ul className="mt-3.5 space-y-2.5">
                   {column.links.map((link, idx) => (
                     <li key={idx}>
                       <a
                         href={link.href}
-                        className="block text-[13px] text-white/70 transition-colors hover:text-[#f07b1a] py-0.5 hover:translate-x-0.5 transform duration-150"
+                        className="block text-[14.5px] sm:text-[15px] font-semibold text-white/80 transition-colors hover:text-[#f07b1a] py-0.5 hover:translate-x-0.5 transform duration-150"
                       >
                         {link.label}
                       </a>
@@ -184,26 +184,26 @@ export default function Footer({ copy, lang }) {
 
           {/* Payment & Security Section */}
           <div className="lg:col-span-3">
-            <h3 className="text-[13px] font-black uppercase tracking-wider text-white border-b border-white/15 pb-2">
+            <h3 className="text-[16px] sm:text-[17px] font-black uppercase tracking-wider text-white border-b border-white/20 pb-2.5">
               {copy.footer.payment}
             </h3>
-            <p className="mt-3 text-[12px] text-white/65">
+            <p className="mt-3 text-[14px] font-medium text-white/75">
               {lang === 'bn' ? '১০০% নিরাপদ ও ভেরিফায়েড পেমেন্ট মাধ্যম:' : '100% Secure & verified payment gateways:'}
             </p>
-            <div className="mt-3 grid grid-cols-3 gap-1.5">
+            <div className="mt-3.5 grid grid-cols-3 gap-2">
               {PAYMENT_BADGES.map((b) => (
                 <span
                   key={b.name}
-                  className={`rounded-lg py-1.5 text-center text-[11px] font-black tracking-wide shadow-xs ${b.color}`}
+                  className={`rounded-xl py-2 text-center text-[12.5px] font-black tracking-wide shadow-xs ${b.color}`}
                 >
                   {b.name}
                 </span>
               ))}
             </div>
 
-            <div className="mt-4 flex items-center gap-2 rounded-xl bg-white/[0.06] p-2.5 ring-1 ring-white/10">
+            <div className="mt-4.5 flex items-center gap-2.5 rounded-2xl bg-white/[0.08] p-3 ring-1 ring-white/15">
               <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
-              <span className="text-[11.5px] font-medium text-white/80">
+              <span className="text-[13.5px] font-bold text-white/90">
                 {lang === 'bn' ? 'নিরাপদ লেনদেন ও ক্যাশ অন ডেলিভারি' : 'Encrypted transactions & Doorstep COD'}
               </span>
             </div>
@@ -212,22 +212,11 @@ export default function Footer({ copy, lang }) {
       </div>
 
       {/* Bottom Legal Bar */}
-      <div className="border-t border-white/10 bg-black/20">
-        <div className="shell flex flex-col items-center justify-between gap-2 py-4 text-[12px] text-white/50 sm:flex-row">
+      <div className="border-t border-white/10 bg-black/25">
+        <div className="shell flex flex-col items-center justify-between gap-2 py-4 text-[13.5px] font-medium text-white/60 sm:flex-row">
           <p>
             © {new Date().getFullYear()} Mudiwala Grocery. {copy.footer.rights}
           </p>
-          {/* <p>
-            {copy.footer.photoCredit}:{' '}
-            <a
-              href="https://commons.wikimedia.org"
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-2 hover:text-[#f07b1a]"
-            >
-              Wikimedia Commons
-            </a>
-          </p> */}
         </div>
       </div>
     </footer>

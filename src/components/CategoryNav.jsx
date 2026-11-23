@@ -32,11 +32,11 @@ export default function CategoryNav({
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className={`flex h-12 items-center gap-2 rounded-l-xl px-3.5 text-[13px] font-bold transition-colors sm:px-4 ${
+            className={`flex h-12 items-center gap-2 rounded-l-xl px-3.5 text-[14px] sm:text-[14.5px] font-black transition-colors sm:px-4 ${
               open ? 'bg-brand text-white' : 'bg-brand-soft text-brand'
             }`}
           >
-            <LayoutGrid className="h-[18px] w-[18px]" strokeWidth={2.4} />
+            <LayoutGrid className="h-[18px] w-[18px]" strokeWidth={2.6} />
             <span className="hidden sm:inline">{copy.nav.categories}</span>
             <ChevronDown
               className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`}
@@ -61,14 +61,14 @@ export default function CategoryNav({
                           {CATEGORY_ICONS[category.icon]}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block text-[13.5px] font-bold text-ink">
+                          <span className="block text-[14.5px] sm:text-[15px] font-black text-ink">
                             {lang === 'bn' ? category.bn : category.en}
                           </span>
-                          <span className="block truncate text-[11.5px] text-muted">
+                          <span className="block truncate text-[12px] font-semibold text-muted">
                             {lang === 'bn' ? category.blurb.bn : category.blurb.en}
                           </span>
                         </span>
-                        <span className="num shrink-0 rounded-full bg-line-soft px-2 py-0.5 text-[11px] font-bold text-muted">
+                        <span className="num shrink-0 rounded-full bg-line-soft px-2.5 py-0.5 text-[11.5px] font-black text-muted">
                           {count}
                         </span>
                       </button>
@@ -89,8 +89,8 @@ export default function CategoryNav({
                 <button
                   type="button"
                   onClick={() => pick(category.id)}
-                  className={`relative flex h-12 items-center gap-1.5 px-3 text-[14px] sm:text-[14.5px] font-bold transition-colors ${
-                    active ? 'text-brand font-black' : 'text-ink/80 hover:text-brand'
+                  className={`relative flex h-12 items-center gap-1.5 px-3 text-[14px] sm:text-[15px] font-black transition-colors ${
+                    active ? 'text-brand font-black' : 'text-ink/85 hover:text-brand'
                   }`}
                 >
                   <span className="hidden lg:inline">{CATEGORY_ICONS[category.icon]}</span>
@@ -107,7 +107,7 @@ export default function CategoryNav({
         <button
           type="button"
           onClick={onOpenMenu}
-          className="hidden h-12 shrink-0 items-center rounded-r-xl bg-brand-soft px-4 text-[13px] font-bold text-brand transition-colors hover:bg-action-soft lg:flex"
+          className="hidden h-12 shrink-0 items-center rounded-r-xl bg-brand-soft px-4 text-[14px] font-black text-brand transition-colors hover:bg-action-soft lg:flex"
         >
           {copy.nav.offers}
         </button>

@@ -196,25 +196,25 @@ export function MenuDrawer({ copy, lang, open, onClose, categories, onPickCatego
         aria-hidden="true"
       />
       <aside
-        className={`fixed left-0 top-0 z-[60] flex h-full w-full max-w-[320px] flex-col bg-surface shadow-pop transition-transform duration-300 ease-out ${
+        className={`fixed left-0 top-0 z-[60] flex h-full w-full max-w-[340px] flex-col bg-surface shadow-pop transition-transform duration-300 ease-out ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
         aria-label={copy.nav.menu}
         aria-hidden={!open}
       >
         <header className="flex items-center justify-between border-b border-line px-5 py-4">
-          <h2 className="text-[16px] font-extrabold text-brand-deep">{copy.nav.menu}</h2>
+          <h2 className="text-[21px] font-black text-brand-deep tracking-tight">{copy.nav.menu}</h2>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl px-2 py-1 text-[13px] font-bold text-brand hover:bg-line-soft"
+            className="rounded-xl px-3 py-1.5 text-[15px] font-black text-brand hover:bg-line-soft transition-colors active:scale-95"
           >
             {copy.nav.close}
           </button>
         </header>
 
-        <nav className="flex-1 overflow-y-auto px-3 py-3">
-          <ul className="space-y-1">
+        <nav className="flex-1 overflow-y-auto px-3.5 py-3.5">
+          <ul className="space-y-1.5">
             {categories.map((category) => (
               <li key={category.id}>
                 <button
@@ -223,18 +223,20 @@ export function MenuDrawer({ copy, lang, open, onClose, categories, onPickCatego
                     onPickCategory(category.id);
                     onClose();
                   }}
-                  className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-[13.5px] font-semibold text-ink transition-colors hover:bg-action-soft hover:text-brand"
+                  className="flex w-full items-center gap-3.5 rounded-2xl px-3.5 py-3 text-left transition-all hover:bg-brand-soft hover:text-brand-deep active:scale-[0.98]"
                 >
-                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-art text-[15px]">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-art text-[22px] shadow-xs">
                     {category.icon}
                   </span>
-                  {lang === 'bn' ? category.bn : category.en}
+                  <span className="text-[17px] font-black text-gray-950 tracking-tight">
+                    {lang === 'bn' ? category.bn : category.en}
+                  </span>
                 </button>
               </li>
             ))}
           </ul>
 
-          <div className="my-3 h-px bg-line-soft" />
+          <div className="my-4 h-px bg-line/80" />
 
           <ul className="space-y-1">
             {[copy.nav.trackOrder, copy.nav.help, copy.nav.account, copy.nav.contact].map(
@@ -243,7 +245,7 @@ export function MenuDrawer({ copy, lang, open, onClose, categories, onPickCatego
                   <button
                     type="button"
                     onClick={onClose}
-                    className="w-full rounded-xl px-3 py-2.5 text-left text-[13px] font-semibold text-ink/80 transition-colors hover:bg-line-soft hover:text-brand"
+                    className="w-full rounded-xl px-4 py-3 text-left text-[15.5px] font-black text-gray-900 transition-colors hover:bg-line-soft hover:text-brand active:scale-[0.98]"
                   >
                     {item}
                   </button>
@@ -253,17 +255,17 @@ export function MenuDrawer({ copy, lang, open, onClose, categories, onPickCatego
           </ul>
         </nav>
 
-        <div className="border-t border-line p-3">
+        <div className="border-t border-line p-3.5">
           <button
             type="button"
             onClick={() => {
               onOpenWishlist();
               onClose();
             }}
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-line py-2.5 text-[13px] font-bold text-berry transition-colors hover:bg-action-soft"
+            className="flex h-12 w-full items-center justify-center gap-2.5 rounded-2xl border-2 border-berry/25 bg-rose-50/60 py-2.5 text-[15.5px] font-black text-berry transition-all hover:bg-rose-100/70 active:scale-[0.98]"
           >
-            <Heart className="h-4 w-4" strokeWidth={2.3} />
-            {copy.nav.wishlist}
+            <Heart className="h-5 w-5" strokeWidth={2.6} />
+            <span>{copy.nav.wishlist}</span>
           </button>
         </div>
       </aside>

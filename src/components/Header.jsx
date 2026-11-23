@@ -89,11 +89,11 @@ export default function Header({
             <button
               type="button"
               onClick={onTrackOrder}
-              className="hidden text-white/80 hover:text-amber-200 transition-colors font-medium lg:inline"
+              className="hidden text-white/90 hover:text-amber-200 transition-colors font-bold lg:inline"
             >
               {copy.nav.trackOrder}
             </button>
-            <span className="hidden text-white/75 lg:inline">{copy.nav.help}</span>
+            <span className="hidden text-white/85 font-bold lg:inline">{copy.nav.help}</span>
           </div>
         </div>
       </div>
@@ -135,7 +135,7 @@ export default function Header({
                 <span className="block text-[10px] font-semibold uppercase tracking-wider text-muted">
                   {copy.order.area}
                 </span>
-                <span className="block truncate text-[13px] font-bold text-ink">
+                <span className="block truncate text-[14px] font-black text-ink">
                   {lang === 'bn' ? currentArea.bn : currentArea.en}
                 </span>
               </span>
