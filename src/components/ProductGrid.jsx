@@ -71,10 +71,12 @@ export default function ProductGrid({
         {/* Heading */}
         <div className="flex flex-col gap-4 border-b border-line pb-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h2 className="mt-2.5 text-[24px] font-extrabold tracking-tight text-brand-deep sm:text-[31px]">
+            <h2 className="mt-2.5 text-[26px] xs:text-[28px] sm:text-[34px] font-black tracking-tight text-brand-deep">
               {copy.catalog.title}
             </h2>
-            <p className="mt-1 text-[13.5px] text-muted">{copy.catalog.subtitle}</p>
+            <p className="mt-1 text-[14px] sm:text-[15.5px] font-medium text-muted">
+              {copy.catalog.subtitle}
+            </p>
           </div>
 
           <div className="flex items-center gap-2">

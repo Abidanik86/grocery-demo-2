@@ -106,14 +106,14 @@ export default function ProductCard({
         {/* Title in Bangla */}
         <h3
           onClick={() => onQuickView(product)}
-          className="line-clamp-1 text-[15.5px] sm:text-[16.5px] font-black text-gray-950 leading-snug cursor-pointer hover:text-[#f07b1a] transition-colors"
+          className="line-clamp-1 text-[16.5px] sm:text-[18px] font-black text-gray-950 leading-snug cursor-pointer hover:text-[#f07b1a] transition-colors"
           title={lang === 'bn' ? product.name.bn : product.name.en}
         >
           {lang === 'bn' ? product.name.bn : product.name.en}
         </h3>
 
         {/* Subtitle in English */}
-        <p className="line-clamp-1 text-[12.5px] sm:text-[13px] font-medium text-gray-500 mt-0.5">
+        <p className="line-clamp-1 text-[13px] sm:text-[13.5px] font-semibold text-gray-500 mt-0.5">
           {lang === 'bn' ? product.name.en : (product.origin?.en || product.unit?.en)}
         </p>
 
@@ -126,11 +126,11 @@ export default function ProductCard({
                 key={item.id}
                 type="button"
                 onClick={() => onPickVariant(product.id, item.id)}
-                className={`shrink-0 rounded-lg px-2.5 sm:px-3 py-1 text-[11.5px] sm:text-[12px] font-bold transition-all ${
+                className={`shrink-0 rounded-lg px-2.5 sm:px-3 py-1 text-[12px] sm:text-[13px] font-black transition-all ${
                   isSelected
                     ? inCart
                       ? 'bg-emerald-600 text-white shadow-xs'
-                      : 'bg-[#f07b1a] text-white shadow-xs font-black'
+                      : 'bg-[#f07b1a] text-white shadow-xs'
                     : 'border border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                 }`}
               >
@@ -142,16 +142,16 @@ export default function ProductCard({
 
         {/* Price Row: ৳375 ৳410 (Matching reference image) */}
         <div className="mt-2.5 flex items-baseline gap-2">
-          <span className="num text-[20px] sm:text-[22px] font-black text-gray-950 tracking-tight">
+          <span className="num text-[21px] sm:text-[23px] font-black text-gray-950 tracking-tight">
             {taka(variant.price)}
           </span>
           {product.oldPrice && (
-            <span className="num text-[13px] sm:text-[14px] font-semibold text-gray-400 line-through">
+            <span className="num text-[13.5px] sm:text-[14.5px] font-semibold text-gray-400 line-through">
               {taka(product.oldPrice)}
             </span>
           )}
           {product.unit && (
-            <span className="text-[11px] text-gray-500 font-medium ml-auto">
+            <span className="text-[12px] text-gray-500 font-semibold ml-auto">
               {lang === 'bn' ? product.unit.bn : product.unit.en}
             </span>
           )}
@@ -160,27 +160,27 @@ export default function ProductCard({
         {/* Cart Button: + যোগ করুন (Vibrant orange matching image, turns emerald on add) */}
         <div className="mt-3 pt-0.5">
           {inCart ? (
-            <div className="flex h-11 w-full items-center justify-between rounded-xl sm:rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 px-2.5 text-white shadow-md ring-2 ring-emerald-400/40 animate-bounce-micro">
+            <div className="flex h-11.5 w-full items-center justify-between rounded-xl sm:rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 px-3 text-white shadow-md ring-2 ring-emerald-400/40 animate-bounce-micro">
               <button
                 type="button"
                 onClick={() => onDecrement(product.id, variant.id)}
-                className="grid h-8 w-8 place-items-center rounded-lg hover:bg-white/20 transition-all active:scale-90 text-white"
+                className="grid h-8.5 w-8.5 place-items-center rounded-lg hover:bg-white/20 transition-all active:scale-90 text-white"
                 aria-label="Decrease"
               >
                 <Minus className="h-4 w-4" strokeWidth={3} />
               </button>
               <div className="flex items-center gap-1.5 px-2">
-                <span className="num text-[16px] font-black text-white">
+                <span className="num text-[16.5px] font-black text-white">
                   {qty}
                 </span>
-                <span className="text-[12px] font-bold text-emerald-100">
+                <span className="text-[13px] font-bold text-emerald-100">
                   {lang === 'bn' ? 'টি যোগ হয়েছে' : 'added'}
                 </span>
               </div>
               <button
                 type="button"
                 onClick={() => onIncrement(product.id, variant.id)}
-                className="grid h-8 w-8 place-items-center rounded-lg hover:bg-white/20 transition-all active:scale-90 text-white"
+                className="grid h-8.5 w-8.5 place-items-center rounded-lg hover:bg-white/20 transition-all active:scale-90 text-white"
                 aria-label="Increase"
               >
                 <Plus className="h-4 w-4" strokeWidth={3} />
@@ -190,9 +190,9 @@ export default function ProductCard({
             <button
               type="button"
               onClick={() => onAdd(product.id, variant.id)}
-              className="btn-shimmer-hover flex h-11 w-full items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-[#f07b1a] px-4 text-[14.5px] sm:text-[15.5px] font-black text-white shadow-soft transition-all hover:bg-[#e06d10] hover:scale-[1.01] active:scale-[0.98]"
+              className="btn-shimmer-hover flex h-11.5 w-full items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-[#f07b1a] px-4 text-[15.5px] sm:text-[16.5px] font-black text-white shadow-soft transition-all hover:bg-[#e06d10] hover:scale-[1.01] active:scale-[0.98]"
             >
-              <span className="text-[19px] font-black leading-none group-hover:scale-125 transition-transform">+</span>
+              <span className="text-[20px] font-black leading-none group-hover:scale-125 transition-transform">+</span>
               <span>{lang === 'bn' ? 'যোগ করুন' : 'Add to Cart'}</span>
             </button>
           )}

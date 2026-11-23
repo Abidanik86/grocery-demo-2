@@ -120,22 +120,22 @@ function SlideContent({ slide, copy, lang, onShop }) {
     <div className="absolute inset-0 z-[5] flex items-end bg-gradient-to-t from-brand-deep/95 via-brand-deep/50 to-transparent">
       <div className="shell w-full pb-10 sm:pb-14">
         {/* Eyebrow badge */}
-        {/* <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3.5 py-1 text-[11.5px] sm:text-[13px] font-black uppercase tracking-wider text-white shadow-soft">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3.5 py-1 text-[12.5px] sm:text-[14px] font-black uppercase tracking-wider text-white shadow-soft">
             ⚡ {lang === 'bn' ? slide.eyebrow.bn : slide.eyebrow.en}
           </span>
-          <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-[12px] font-extrabold text-white">
+          <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-[13px] font-black text-white">
             🌱 ১০০% ভেজালমুক্ত
           </span>
-        </div> */}
+        </div>
 
         {/* Main headline with increased font size */}
-        <h2 className="mt-2.5 max-w-[20ch] text-[22px] xs:text-[25px] sm:text-[34px] lg:text-[44px] font-black leading-[1.22] text-white drop-shadow-md">
+        <h2 className="mt-2.5 max-w-[22ch] text-[26px] xs:text-[30px] sm:text-[38px] lg:text-[48px] font-black leading-[1.2] text-white drop-shadow-md">
           {lang === 'bn' ? slide.title.bn : slide.title.en}
         </h2>
 
         {/* Subtext */}
-        <p className="mt-2 hidden max-w-[52ch] text-[14.5px] sm:text-[16px] leading-relaxed text-white/90 sm:block drop-shadow">
+        <p className="mt-2 hidden max-w-[52ch] text-[15.5px] sm:text-[17.5px] leading-relaxed text-white/95 sm:block drop-shadow font-medium">
           {lang === 'bn' ? slide.text.bn : slide.text.en}
         </p>
 
@@ -143,7 +143,7 @@ function SlideContent({ slide, copy, lang, onShop }) {
         <button
           type="button"
           onClick={onShop}
-          className="mt-3.5 inline-flex min-h-[46px] items-center gap-2 rounded-2xl bg-gradient-to-r from-action via-mango to-action-dark px-6 text-[14px] sm:text-[15.5px] font-black text-white shadow-lift transition-all hover:scale-105 active:scale-95 sm:mt-4 sm:min-h-[50px] sm:px-8"
+          className="mt-3.5 inline-flex min-h-[48px] items-center gap-2.5 rounded-2xl bg-gradient-to-r from-action via-mango to-action-dark px-7 text-[15.5px] sm:text-[17px] font-black text-white shadow-lift transition-all hover:scale-105 active:scale-95 sm:mt-4 sm:min-h-[52px] sm:px-9"
         >
           <span>{lang === 'bn' ? slide.cta.bn : slide.cta.en}</span>
           <ArrowRight className="h-4 w-4" strokeWidth={2.8} />

@@ -89,8 +89,8 @@ export default function CategoryNav({
                 <button
                   type="button"
                   onClick={() => pick(category.id)}
-                  className={`relative flex h-12 items-center gap-1.5 px-3 text-[13px] font-semibold transition-colors ${
-                    active ? 'text-brand' : 'text-ink/75 hover:text-brand'
+                  className={`relative flex h-12 items-center gap-1.5 px-3 text-[14px] sm:text-[14.5px] font-bold transition-colors ${
+                    active ? 'text-brand font-black' : 'text-ink/80 hover:text-brand'
                   }`}
                 >
                   <span className="hidden lg:inline">{CATEGORY_ICONS[category.icon]}</span>
