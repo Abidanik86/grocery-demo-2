@@ -53,10 +53,10 @@ export default function FeatureStrip({ copy }) {
                   <Icon className="h-5 w-5 text-white" strokeWidth={2.4} />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate text-[12.5px] font-extrabold leading-tight sm:text-[13px] text-white">
+                  <span className="block truncate text-[13.5px] font-black leading-tight sm:text-[14.5px] text-white">
                     {item.title}
                   </span>
-                  <span className="mt-0.5 block truncate text-[11px] leading-snug text-white/70 sm:text-[11.5px]">
+                  <span className="mt-0.5 block truncate text-[11.5px] font-medium leading-snug text-white/80 sm:text-[12.5px]">
                     {item.text}
                   </span>
                 </span>

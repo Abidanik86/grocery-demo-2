@@ -123,7 +123,7 @@ export default function Footer({ copy, lang }) {
         <div className="grid gap-8 lg:grid-cols-12">
           {/* Brand & Contact Info */}
           <div className="lg:col-span-4">
-            <Logo />
+            <Logo dark />
             <p className="mt-3.5 max-w-sm text-[13px] leading-relaxed text-white/70">
               {copy.footer.about}
             </p>

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Clock, Leaf, ShieldCheck, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { SLIDES } from '../data/catalog';
 
 const DURATION = 6000;
@@ -45,7 +45,7 @@ export default function HeroSlider({ copy, lang, onShop }) {
     <section id="hero" className="relative bg-canvas">
       {/* --------------------------------------------------------- slides */}
       <div
-        className="relative h-[clamp(230px,58vw,300px)] overflow-hidden bg-brand-deep sm:h-[clamp(320px,46vw,420px)] lg:h-[clamp(420px,42vw,520px)]"
+        className="relative h-[clamp(320px,88vw,420px)] overflow-hidden bg-brand-deep sm:h-[clamp(380px,52vw,460px)] lg:h-[clamp(440px,42vw,540px)]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onTouchStart={onTouchStart}
@@ -56,9 +56,8 @@ export default function HeroSlider({ copy, lang, onShop }) {
           return (
             <article
               key={item.id}
-              className={`absolute inset-0 transition-opacity duration-[900ms] ease-out ${
-                active ? 'opacity-100' : 'pointer-events-none opacity-0'
-              }`}
+              className={`absolute inset-0 transition-opacity duration-[900ms] ease-out ${active ? 'opacity-100' : 'pointer-events-none opacity-0'
+                }`}
               aria-hidden={!active}
             >
               <HeroImage slide={item} active={active} eager={slideIndex === 0} />
@@ -67,104 +66,93 @@ export default function HeroSlider({ copy, lang, onShop }) {
           );
         })}
 
-        {/* Arrows */}
+        {/* Desktop Side Arrows (hidden on mobile to prevent any text overlapping) */}
         <button
           type="button"
           onClick={() => go(index - 1)}
-          className="absolute left-2 top-1/2 z-10 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/85 text-brand-deep shadow-soft transition-all hover:bg-white hover:scale-105 sm:left-5 sm:h-11 sm:w-11"
+          className="absolute left-4 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-brand-deep shadow-lift backdrop-blur transition-all hover:bg-white hover:scale-105 sm:grid"
           aria-label="Previous slide"
         >
-          <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2.6} />
+          <ArrowLeft className="h-5 w-5" strokeWidth={2.8} />
         </button>
         <button
           type="button"
           onClick={() => go(index + 1)}
-          className="absolute right-2 top-1/2 z-10 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/85 text-brand-deep shadow-soft transition-all hover:bg-white hover:scale-105 sm:right-5 sm:h-11 sm:w-11"
+          className="absolute right-4 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-brand-deep shadow-lift backdrop-blur transition-all hover:bg-white hover:scale-105 sm:grid"
           aria-label="Next slide"
         >
-          <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2.6} />
+          <ArrowRight className="h-5 w-5" strokeWidth={2.8} />
         </button>
 
-        {/* Dots + progress */}
-        <div className="absolute inset-x-0 bottom-1 z-10 flex items-center justify-center gap-1 sm:bottom-5 sm:gap-2.5">
-          {SLIDES.map((item, slideIndex) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => go(slideIndex)}
-              className="group relative flex h-8 w-6 items-center justify-center sm:h-6 sm:w-auto"
-              aria-label={`${copy.hero.dots} ${slideIndex + 1}`}
-              aria-current={slideIndex === index}
-            >
-              <span
-                className="block h-2.5 overflow-hidden rounded-full bg-white/55 transition-all group-hover:bg-white/80"
-                style={{ width: slideIndex === index ? 34 : 10 }}
+        {/* Slide Indicators: Clean, modern pills without any overlap or distortion */}
+        <div className="absolute inset-x-0 bottom-3 z-10 flex items-center justify-center gap-2 sm:bottom-4 sm:gap-2.5">
+          {SLIDES.map((item, slideIndex) => {
+            const active = slideIndex === index;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => go(slideIndex)}
+                className="flex h-6 items-center justify-center p-1 transition-all focus:outline-none"
+                aria-label={`${copy.hero.dots} ${slideIndex + 1}`}
+                aria-current={active}
               >
-                {slideIndex === index && (
-                  <span
-                    key={`${index}-${paused}`}
-                    className="absolute inset-y-0 left-0 rounded-full bg-action"
-                    style={{
-                      animation: `mw-progress ${DURATION}ms linear forwards`,
-                      animationPlayState: paused ? 'paused' : 'running',
-                    }}
-                  />
-                )}
-              </span>
-            </button>
-          ))}
+                <span
+                  className={`block h-2.5 rounded-full transition-all duration-300 ${active
+                      ? 'w-7 sm:w-8 bg-[#f07b1a] shadow-sm ring-1 ring-white/40'
+                      : 'w-2.5 bg-white/60 hover:bg-white/90 hover:scale-110'
+                    }`}
+                />
+              </button>
+            );
+          })}
         </div>
       </div>
-
-      <style>{`
-        @keyframes mw-progress { from { width: 0%; } to { width: 100%; } }
-      `}</style>
     </section>
   );
 }
 
 /**
- * Slide copy overlay. It sits on a scrim so the text stays readable over any
- * photograph, and it collapses to a single clamped block on phones.
+ * Slide copy overlay with increased font sizes and generous padding.
  */
 function SlideContent({ slide, copy, lang, onShop }) {
   return (
     <div className="absolute inset-0 z-[5] flex items-end bg-gradient-to-t from-brand-deep/95 via-brand-deep/50 to-transparent">
-      <div className="shell w-full pb-8 sm:pb-12">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-soft sm:text-[11px]">
+      <div className="shell w-full pb-10 sm:pb-14">
+        {/* Eyebrow badge */}
+        {/* <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3.5 py-1 text-[11.5px] sm:text-[13px] font-black uppercase tracking-wider text-white shadow-soft">
             ⚡ {lang === 'bn' ? slide.eyebrow.bn : slide.eyebrow.en}
           </span>
-          <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md px-2.5 py-1 text-[11px] font-bold text-white">
+          <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-[12px] font-extrabold text-white">
             🌱 ১০০% ভেজালমুক্ত
           </span>
-        </div>
+        </div> */}
 
-        <h2 className="mt-2 max-w-[18ch] text-[20px] font-black leading-[1.18] text-white sm:mt-2.5 sm:max-w-[22ch] sm:text-[32px] lg:max-w-[24ch] lg:text-[42px] drop-shadow-md">
+        {/* Main headline with increased font size */}
+        <h2 className="mt-2.5 max-w-[20ch] text-[22px] xs:text-[25px] sm:text-[34px] lg:text-[44px] font-black leading-[1.22] text-white drop-shadow-md">
           {lang === 'bn' ? slide.title.bn : slide.title.en}
         </h2>
 
-        <p className="mt-2 hidden max-w-[52ch] text-[14px] leading-relaxed text-white/90 sm:block drop-shadow">
+        {/* Subtext */}
+        <p className="mt-2 hidden max-w-[52ch] text-[14.5px] sm:text-[16px] leading-relaxed text-white/90 sm:block drop-shadow">
           {lang === 'bn' ? slide.text.bn : slide.text.en}
         </p>
 
+        {/* CTA Button with larger text and comfortable touch height */}
         <button
           type="button"
           onClick={onShop}
-          className="mt-3.5 inline-flex min-h-[42px] items-center gap-2 rounded-2xl bg-gradient-to-r from-action via-mango to-action-dark px-5 text-[13px] font-black text-white shadow-lift transition-all hover:scale-105 active:scale-95 sm:mt-4 sm:min-h-[48px] sm:px-7 sm:text-[14.5px]"
+          className="mt-3.5 inline-flex min-h-[46px] items-center gap-2 rounded-2xl bg-gradient-to-r from-action via-mango to-action-dark px-6 text-[14px] sm:text-[15.5px] font-black text-white shadow-lift transition-all hover:scale-105 active:scale-95 sm:mt-4 sm:min-h-[50px] sm:px-8"
         >
           <span>{lang === 'bn' ? slide.cta.bn : slide.cta.en}</span>
-          <ArrowRight className="h-4 w-4" strokeWidth={2.7} />
+          <ArrowRight className="h-4 w-4" strokeWidth={2.8} />
         </button>
       </div>
     </div>
   );
 }
 
-/**
- * Slide photo with a graceful fallback — if the file is ever missing the hero
- * keeps its layout and shows a brand gradient instead of a broken image.
- */
 function HeroImage({ slide, active, eager }) {
   const [failed, setFailed] = useState(false);
 

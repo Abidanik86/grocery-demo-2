@@ -117,7 +117,7 @@ export default function Header({
           <a href="#top" className="min-w-0 shrink-0">
             <Logo
               subtitleClassName="hidden sm:inline-flex"
-              textClassName="hidden xs:flex sm:flex"
+              textClassName="flex"
             />
           </a>
 

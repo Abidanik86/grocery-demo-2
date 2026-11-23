@@ -73,39 +73,39 @@ export function MobileHome({
       <section className="shell mt-6">
         <div className="flex items-end justify-between gap-3">
           <div>
-            <h2 className="text-[19px] font-extrabold tracking-tight text-brand-deep">
+            <h2 className="text-[21px] sm:text-[24px] font-black tracking-tight text-brand-deep">
               {copy.mobile.shopByCategory}
             </h2>
-            <p className="mt-0.5 text-[12.5px] text-muted">
+            <p className="mt-0.5 text-[13px] font-medium text-muted">
               {copy.catalog.subtitle}
             </p>
           </div>
           <button
             type="button"
             onClick={onOpenCategories}
-            className="inline-flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[12.5px] font-bold text-brand transition-colors hover:bg-brand-soft"
+            className="inline-flex shrink-0 items-center gap-1 rounded-xl px-2.5 py-1 text-[13px] font-black text-brand transition-colors hover:bg-brand-soft"
           >
             {copy.mobile.viewAll}
             <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.6} />
           </button>
         </div>
 
-        <div className="mt-3.5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3.5">
+        <div className="mt-3.5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3.5">
           {CATEGORIES.filter((category) => category.id !== 'all').map((category) => (
             <button
               key={category.id}
               type="button"
               onClick={() => onOpenCategories(category.id)}
-              className="flex items-center gap-2.5 rounded-2xl border border-line bg-surface p-2.5 text-left shadow-soft transition-colors active:bg-action-soft"
+              className="flex items-center gap-2.5 rounded-2xl border border-line bg-surface p-3 text-left shadow-soft transition-colors active:bg-action-soft"
             >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-art text-[19px]">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-art text-[20px]">
                 {CATEGORY_ICONS[category.icon]}
               </span>
               <span className="min-w-0">
-                <span className="block truncate text-[12.5px] font-bold text-ink">
+                <span className="block truncate text-[13.5px] font-black text-ink">
                   {lang === 'bn' ? category.bn : category.en}
                 </span>
-                <span className="num block text-[10.5px] text-muted">
+                <span className="num block text-[11px] font-medium text-muted">
                   {CATEGORY_COUNTS[category.id]} {copy.mobile.inCategory}
                 </span>
               </span>
@@ -116,13 +116,13 @@ export function MobileHome({
 
       <section className="shell mt-7">
         <div className="flex items-end justify-between gap-3">
-          <h2 className="text-[19px] font-extrabold tracking-tight text-brand-deep">
+          <h2 className="text-[21px] sm:text-[24px] font-black tracking-tight text-brand-deep">
             {copy.catalog.title}
           </h2>
           <button
             type="button"
             onClick={onSeeAll}
-            className="inline-flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[12.5px] font-bold text-brand transition-colors hover:bg-brand-soft"
+            className="inline-flex shrink-0 items-center gap-1 rounded-xl px-2.5 py-1 text-[13px] font-black text-brand transition-colors hover:bg-brand-soft"
           >
             {copy.mobile.viewAll}
             <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.6} />
@@ -188,12 +188,12 @@ function FeaturedRail({
   return (
     <section className="mt-4">
       <div className="shell">
-        <h2 className="text-[19px] font-extrabold tracking-tight text-brand-deep">
+        <h2 className="text-[21px] sm:text-[24px] font-black tracking-tight text-brand-deep">
           {copy.mobile.featured}
         </h2>
       </div>
 
-      <div className="no-scrollbar mt-3 flex gap-2 overflow-x-auto px-3.5 pb-1">
+      <div className="no-scrollbar mt-3 flex gap-2.5 overflow-x-auto px-3.5 pb-1.5">
         {tabs.map((tab) => {
           const isActive = tab.id === active;
           return (
@@ -201,13 +201,13 @@ function FeaturedRail({
               key={tab.id}
               type="button"
               onClick={() => setActive(tab.id)}
-              className={`flex shrink-0 items-center gap-1.5 rounded-xl px-3 py-2 text-[12.5px] font-bold transition-colors ${
+              className={`flex shrink-0 items-center gap-1.5 rounded-2xl px-3.5 py-2 text-[13px] font-black transition-all ${
                 isActive
-                  ? 'bg-brand text-white shadow-soft'
+                  ? 'bg-brand text-white shadow-soft scale-[1.02]'
                   : 'border border-line bg-surface text-ink/80'
               }`}
             >
-              <span className="text-[14px]">{CATEGORY_ICONS[tab.icon]}</span>
+              <span className="text-[16px]">{CATEGORY_ICONS[tab.icon]}</span>
               {lang === 'bn' ? tab.bn : tab.en}
             </button>
           );
@@ -215,7 +215,7 @@ function FeaturedRail({
       </div>
 
       {current && (
-        <p className="shell mt-2 text-[12px] text-muted">
+        <p className="shell mt-2 text-[13px] font-medium text-muted">
           {lang === 'bn' ? current.blurb.bn : current.blurb.en}
         </p>
       )}

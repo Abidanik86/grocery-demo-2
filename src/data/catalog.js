@@ -723,7 +723,7 @@ export const SLIDES = [
     id: 'supermarket',
     image: '/images/slides/slide-supermarket.jpg',
     eyebrow: { bn: 'সপারমার্কেট স্টাইল', en: 'Supermarket style' },
-    title: { bn: 'এক বাস্কায় মুদি, দুধ ও ঘরের সবকিছু', en: 'Groceries, dairy and home needs in one basket' },
+    title: { bn: 'এক বাক্সে মুদি, দুধ ও ঘরের সবকিছু', en: 'Groceries, dairy and home needs in one basket' },
     text: {
       bn: '৪২টি যাচাই করা পণ্য — দাম দেখে, ঠিক মতো বেছে নিন।',
       en: '42 verified products — compare prices and pick the right one.',
@@ -735,7 +735,7 @@ export const SLIDES = [
     id: 'basket',
     image: '/images/slides/slide-basket.jpg',
     eyebrow: { bn: 'সাশ্রয়ী মাসিক বাজার', en: 'Smart monthly shopping' },
-    title: { bn: 'বার্গেট সাশ্রয়, ডেলিভারি সবার আগে', en: 'Fill the basket, save more, get it delivered first' },
+    title: { bn: 'বাজেট সাশ্রয়, ডেলিভারি সবার আগে', en: 'Fill the basket, save more, get it delivered first' },
     text: {
       bn: '৫০০ ৳ অর্ডারে ফ্রি ডেলিভারি — প্রতিদিন সকাল ৯টা পর্যন্ত অর্ডার নিন।',
       en: 'Free delivery over ৳500 — order before 9 AM for the earliest slot.',

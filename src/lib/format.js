@@ -4,7 +4,7 @@ const TAKA = new Intl.NumberFormat('en-IN', {
 });
 
 export function taka(amount) {
-  return `${TAKA.format(Math.round(amount))} ৳`;
+  return `৳${TAKA.format(Math.round(amount))}`;
 }
 
 /** Compact form for dense spots like the cart badge. */
