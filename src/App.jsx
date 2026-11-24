@@ -9,6 +9,7 @@ import CartDrawer from './components/CartDrawer';
 import QuickViewModal from './components/QuickViewModal';
 import OrderModal, { OrderConfirmModal } from './components/OrderModal';
 import Footer from './components/Footer';
+import LoginPage from './components/LoginPage';
 import Toast from './components/Toast';
 import {
   FloatingCartPill,
@@ -44,6 +45,17 @@ export default function App() {
   const [order, setOrder] = useState(null);
   const [toast, setToast] = useState('');
   const [activeTab, setActiveTab] = useState('home');
+  const [page, setPage] = useState(() =>
+    window.location.hash === '#login' ? 'login' : 'store',
+  );
+  const [merchant, setMerchant] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem('mudiwala_merchant');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
 
   const isMobile = useIsMobile();
 
@@ -162,6 +174,58 @@ export default function App() {
     if (!isMobile && activeTab !== 'home') setActiveTab('home');
   }, [isMobile, activeTab]);
 
+  useEffect(() => {
+    const onHashChange = () => {
+      setPage(window.location.hash === '#login' ? 'login' : 'store');
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  const openLogin = useCallback(() => {
+    setPage('login');
+    if (window.location.hash !== '#login') {
+      window.history.pushState(null, '', '#login');
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
+  const closeLogin = useCallback(() => {
+    setPage('store');
+    if (window.location.hash === '#login') {
+      window.history.pushState(null, '', '#top');
+    }
+  }, []);
+
+  const handleLoginSuccess = useCallback(
+    (user) => {
+      setMerchant(user);
+      try {
+        window.localStorage.setItem('mudiwala_merchant', JSON.stringify(user));
+      } catch {
+        // ignore storage errors
+      }
+      if (user.area) setArea(user.area);
+      closeLogin();
+      showToast(
+        lang === 'bn'
+          ? `স্বাগতম, ${user.shopName}!`
+          : `Welcome back, ${user.shopName}!`,
+      );
+    },
+    [closeLogin, lang, showToast],
+  );
+
+  const handleLogout = useCallback(() => {
+    setMerchant(null);
+    try {
+      window.localStorage.removeItem('mudiwala_merchant');
+    } catch {
+      // ignore storage errors
+    }
+    showToast(lang === 'bn' ? 'সফলভাবে লগআউট হয়েছে' : 'Signed out successfully');
+  }, [lang, showToast]);
+
   const handlePlaceOrder = useCallback(
     (details) => {
       const id = `#MW-${Math.floor(100000 + Math.random() * 899999)}`;
@@ -209,6 +273,20 @@ export default function App() {
     [],
   );
 
+  if (page === 'login') {
+    return (
+      <>
+        <LoginPage
+          lang={lang}
+          onLangChange={() => setLang((current) => (current === 'bn' ? 'en' : 'bn'))}
+          onBack={closeLogin}
+          onSuccess={handleLoginSuccess}
+        />
+        <Toast message={toast} onDone={() => setToast('')} />
+      </>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-canvas pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0 relative overflow-hidden">
       {/* Satisfying ambient background glowing orbs */}
@@ -230,6 +308,9 @@ export default function App() {
         onOpenWishlist={() => (isMobile ? changeTab('account') : setWishOpen(true))}
         onOpenMenu={() => setMenuOpen(true)}
         onOpenSearch={() => (isMobile ? changeTab('search') : undefined)}
+        onOpenLogin={openLogin}
+        onLogout={handleLogout}
+        merchant={merchant}
         onTrackOrder={handleOpenTracking}
         onSearch={handleSearch}
         searchResults={searchResults}
@@ -286,6 +367,9 @@ export default function App() {
               toggleWishlist(productId);
               showToast(copy.product.removedWishlist);
             }}
+            merchant={merchant}
+            onOpenLogin={openLogin}
+            onLogout={handleLogout}
           />
         ) : (
           <>
@@ -397,6 +481,8 @@ export default function App() {
         categories={menuCategories}
         onPickCategory={scrollToCatalog}
         onOpenWishlist={() => setWishOpen(true)}
+        onOpenLogin={openLogin}
+        merchant={merchant}
       />
 
       <QuickViewModal

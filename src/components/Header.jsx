@@ -26,6 +26,9 @@ export default function Header({
   onOpenWishlist,
   onOpenMenu,
   onOpenSearch,
+  onOpenLogin,
+  onLogout,
+  merchant,
   onTrackOrder,
   onSearch,
   searchResults,
@@ -237,13 +240,36 @@ export default function Header({
               )}
             </button>
 
-            <button
-              type="button"
-              className="hidden h-10 w-10 place-items-center rounded-xl text-ink transition-colors hover:bg-line-soft sm:grid"
-              aria-label={copy.nav.account}
-            >
-              <User className="h-[21px] w-[21px]" strokeWidth={2.1} />
-            </button>
+            {merchant ? (
+              <div className="hidden items-center gap-1.5 sm:flex">
+                <button
+                  type="button"
+                  onClick={onOpenLogin}
+                  title={merchant.shopName}
+                  className="inline-flex h-10 items-center gap-2 rounded-xl border border-brand/25 bg-brand-soft px-3 text-[12.5px] font-bold text-brand-deep transition-colors hover:bg-brand/10"
+                >
+                  <User className="h-4 w-4 text-brand" strokeWidth={2.3} />
+                  <span className="max-w-[110px] truncate">{merchant.shopName}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={onLogout}
+                  className="rounded-lg px-2 py-1.5 text-[11.5px] font-bold text-muted transition-colors hover:bg-line-soft hover:text-berry"
+                >
+                  {copy.nav.logout}
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={onOpenLogin}
+                className="hidden h-10 items-center gap-1.5 rounded-xl border border-line bg-canvas px-3 text-[12.5px] font-bold text-ink transition-colors hover:border-action/50 hover:bg-action-soft sm:inline-flex"
+                aria-label={copy.nav.partnerLogin}
+              >
+                <User className="h-[18px] w-[18px] text-brand" strokeWidth={2.2} />
+                <span className="hidden md:inline">{copy.nav.login}</span>
+              </button>
+            )}
 
             <button
               type="button"

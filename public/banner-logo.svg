@@ -1,52 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 545 140" width="545" height="140" fill="none">
-  <defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 854 224" width="854" height="224" fill="none">
+  
+  <g stroke="#000000" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
     
-    <linearGradient id="leafGradLeft" x1="45" y1="22" x2="72" y2="51" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#8BC31E" />
-      <stop offset="100%" stop-color="#197E1C" />
-    </linearGradient>
-    <linearGradient id="leafGradRight" x1="113" y1="9" x2="76" y2="51" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#8BC31E" />
-      <stop offset="100%" stop-color="#197E1C" />
-    </linearGradient>
-  </defs>
+    <path d="M 82 66 V 56 A 11.5 11.5 0 0 1 105 56 V 66" />
+    
+    <path d="M 68 105 V 70 A 4 4 0 0 1 72 66 H 115 A 4 4 0 0 1 119 70 V 124" />
+    <path d="M 68 119 V 124" />
+    
+    <rect x="37" y="112" width="10.5" height="23" rx="2" />
+    
+    <path d="M 47.5 114 C 54 107, 62 105, 72.5 105 H 92 C 97 105, 101 108.2, 101 112 C 101 115.8, 97 119, 92 119 H 68" />
+    <path d="M 47.5 132.5 C 59 137, 74 138.5, 92 138.5 H 130 C 135.5 138.5, 139.5 134.8, 139.5 131 C 139.5 127.2, 135.5 124.5, 130.5 124.5 H 68" />
+  </g>
 
   
-  <path d="M 72 51 C 52 50, 44 38, 45 22 C 62 24, 71 36, 72 51 Z" fill="url(#leafGradLeft)" />
-  
-  <path d="M 70.8 49.5 Q 61 39, 51.5 29.5 Q 62.5 37.5, 69.2 50 Z" fill="#FFFFFF" />
+  <g stroke="#85C936" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    
+    <path d="M 186 130 V 56 L 222 102 L 258 56 V 130" />
+    
+    <path d="M 296 82 V 111 A 19 19 0 0 0 334 111 V 82" />
+    
+    <circle cx="393" cy="106" r="24" />
+    <path d="M 417 54 V 130" />
+    
+    <path d="M 454 82 V 130" />
+    <circle cx="454" cy="53" r="10.5" fill="#85C936" stroke="none" />
+
+    
+    <path d="M 512 54 L 535 130 L 559 82 L 583 130 L 606 54" />
+    
+    <circle cx="660" cy="106" r="24" />
+    <path d="M 684 82 V 130" />
+    
+    <path d="M 722 54 V 130" />
+    
+    <circle cx="784" cy="106" r="24" />
+    <path d="M 808 82 V 130" />
+  </g>
 
   
-  <path d="M 76.5 51 C 74.5 31, 87 14, 113 9 C 115 32, 101 48, 76.5 51 Z" fill="url(#leafGradRight)" />
-  
-  <path d="M 78 49.5 Q 89 30.5, 105 16.5 Q 91.5 32.5, 80 50 Z" fill="#FFFFFF" />
-
-  
-  <path d="M 45.5 57 L 107.5 57 L 100 87 L 53 87 Z" stroke="#F4B618" stroke-width="4.6" stroke-linejoin="round" />
-  
-  <line x1="48" y1="67" x2="105" y2="67" stroke="#F4B618" stroke-width="3.6" />
-  <line x1="50.5" y1="77" x2="102.5" y2="77" stroke="#F4B618" stroke-width="3.6" />
-  
-  <line x1="61" y1="57" x2="64.75" y2="87" stroke="#F4B618" stroke-width="3.6" />
-  <line x1="76.5" y1="57" x2="76.5" y2="87" stroke="#F4B618" stroke-width="3.6" />
-  <line x1="92" y1="57" x2="88.25" y2="87" stroke="#F4B618" stroke-width="3.6" />
-
-  
-  <path d="M 15 45 L 29 45 Q 34 45 35.5 50 L 46.75 95 C 44.5 101.5, 46 110, 54 110 L 100 110" stroke="#197E1C" stroke-width="7.4" stroke-linecap="round" stroke-linejoin="round" />
-  
-  <path d="M 46.75 95 L 100 91.5" stroke="#197E1C" stroke-width="7" stroke-linecap="round" />
-
-  
-  <circle cx="58" cy="123.5" r="6.8" fill="#197E1C" />
-  <circle cx="93" cy="123.5" r="6.8" fill="#197E1C" />
-
-  
-  <text x="128" y="85" font-family="&#39;Nunito&#39;, &#39;Rubik&#39;, &#39;Quicksand&#39;, &#39;Arial Rounded MT Bold&#39;, system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif" font-weight="800" letter-spacing="-1">
-    <tspan font-size="66" fill="#197E1C">Mudi</tspan><tspan font-size="66" fill="#F4B618">wala</tspan><tspan font-size="44" fill="#197E1C" letter-spacing="-0.5">.com</tspan>
-  </text>
-
-  
-  <text x="328" y="118" text-anchor="middle" font-family="&#39;Nunito&#39;, &#39;Rubik&#39;, &#39;Quicksand&#39;, system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif" font-size="25" font-weight="600" letter-spacing="0.4" fill="#197E1C">
-    Fresh Grocery Store
-  </text>
+  <g stroke="#000000" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round">
+    
+    <circle cx="688" cy="177.5" r="4.5" fill="#000000" stroke="none" />
+    
+    <path d="M 723.4 159.6 A 10.5 10.5 0 1 0 723.4 174.4" />
+    
+    <circle cx="749" cy="167" r="10.5" />
+    
+    <path d="M 776.25 177.75 V 164 A 9.5 9.5 0 0 1 795.25 164 V 177.75" />
+    <path d="M 795.25 164 A 9.5 9.5 0 0 1 814.25 164 V 177.75" />
+  </g>
 </svg>

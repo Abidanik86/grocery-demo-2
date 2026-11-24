@@ -2,12 +2,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowRight,
   Heart,
+  LogIn,
+  LogOut,
   Minus,
   PackageOpen,
   Plus,
   RotateCcw,
   Search,
   ShoppingBag,
+  Store,
   Trash2,
   Truck,
   X,
@@ -206,11 +209,10 @@ function FeaturedRail({
               key={tab.id}
               type="button"
               onClick={() => setActive(tab.id)}
-              className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2.5 text-[15px] sm:text-[16px] font-black transition-all ${
-                isActive
-                  ? 'bg-brand text-white shadow-soft scale-[1.02]'
-                  : 'border border-line bg-surface text-ink/85'
-              }`}
+              className={`flex shrink-0 items-center gap-2 rounded-2xl px-4 py-2.5 text-[15px] sm:text-[16px] font-black transition-all ${isActive
+                ? 'bg-brand text-white shadow-soft scale-[1.02]'
+                : 'border border-line bg-surface text-ink/85'
+                }`}
             >
               <span className="text-[18px]">{CATEGORY_ICONS[tab.icon]}</span>
               <span>{lang === 'bn' ? tab.bn : tab.en}</span>
@@ -278,18 +280,16 @@ export function MobileCategories({
                 key={category.id}
                 type="button"
                 onClick={() => onCategoryChange(category.id)}
-                className={`flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2 text-[14.5px] font-black transition-colors ${
-                  isActive
-                    ? 'bg-brand text-white shadow-soft'
-                    : 'border border-line bg-surface text-ink/85'
-                }`}
+                className={`flex shrink-0 items-center gap-2 rounded-xl px-3.5 py-2 text-[14.5px] font-black transition-colors ${isActive
+                  ? 'bg-brand text-white shadow-soft'
+                  : 'border border-line bg-surface text-ink/85'
+                  }`}
               >
                 <span className="text-[16px]">{CATEGORY_ICONS[category.icon]}</span>
                 <span>{lang === 'bn' ? category.bn : category.en}</span>
                 <span
-                  className={`num rounded-full px-2 py-0.5 text-[11px] font-black ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-line-soft text-muted'
-                  }`}
+                  className={`num rounded-full px-2 py-0.5 text-[11px] font-black ${isActive ? 'bg-white/20 text-white' : 'bg-line-soft text-muted'
+                    }`}
                 >
                   {CATEGORY_COUNTS[category.id]}
                 </span>
@@ -485,6 +485,9 @@ export function MobileAccount({
   area,
   areas,
   onAreaChange,
+  merchant,
+  onOpenLogin,
+  onLogout,
 }) {
   return (
     <div className="pb-4">
@@ -492,6 +495,65 @@ export function MobileAccount({
         <h2 className="text-[19px] font-extrabold tracking-tight text-brand-deep">
           {copy.nav.account}
         </h2>
+
+        {/* Partner / Merchant Login Card */}
+        <div
+          className="mt-3 overflow-hidden rounded-2xl border border-indigo-400/30 p-4 text-white shadow-lift"
+          style={{
+            background:
+              'radial-gradient(circle at 85% 20%, #3a1268 0%, #10194e 55%, #091036 100%)',
+          }}
+        >
+          {merchant ? (
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-400/20 text-amber-300 ring-1 ring-amber-300/40">
+                  <Store className="h-5 w-5" />
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-[14.5px] font-extrabold text-white">
+                    {merchant.shopName}
+                  </p>
+                  <p className="num truncate text-[12px] text-amber-200/90">
+                    {merchant.phone}
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={onLogout}
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-2 text-[12px] font-bold text-white transition-colors active:bg-white/20"
+              >
+                <LogOut className="h-3.5 w-3.5" />
+                <span>{copy.nav.logout}</span>
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-3 xs:flex-row xs:items-center xs:justify-between">
+              <div className="min-w-0">
+                <p className="text-[14.5px] font-extrabold text-white">
+                  {lang === 'bn' ? 'Login' : 'Login'}
+                </p>
+                <p className="mt-0.5 text-[12px] text-white/75">
+                  {lang === 'bn'
+                    ? 'আপনার ডিজিটাল মুদি দোকানে প্রবেশ করুন'
+                    : 'Access your Mudiwala partner portal'}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={onOpenLogin}
+                className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-extrabold text-[#1c1002] shadow-md transition-transform active:scale-95"
+                style={{
+                  background: 'linear-gradient(180deg, #fcd34d 0%, #f59e0b 55%, #d97706 100%)',
+                }}
+              >
+                <LogIn className="h-4 w-4" strokeWidth={2.5} />
+                <span>{lang === 'bn' ? 'লগইন করুন' : 'Login'}</span>
+              </button>
+            </div>
+          )}
+        </div>
 
         <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3.5">
           <button
@@ -544,11 +606,10 @@ export function MobileAccount({
                   key={item.id}
                   type="button"
                   onClick={() => onAreaChange(item.id)}
-                  className={`shrink-0 rounded-xl px-3 py-2 text-[12.5px] font-bold transition-colors ${
-                    isActive
-                      ? 'bg-brand text-white shadow-soft'
-                      : 'border border-line bg-surface text-ink/80'
-                  }`}
+                  className={`shrink-0 rounded-xl px-3 py-2 text-[12.5px] font-bold transition-colors ${isActive
+                    ? 'bg-brand text-white shadow-soft'
+                    : 'border border-line bg-surface text-ink/80'
+                    }`}
                 >
                   {lang === 'bn' ? item.bn : item.en}
                 </button>
@@ -837,6 +898,9 @@ export function MobileTabView({
   onAreaChange,
   wishlistProducts,
   onRemoveWishlist,
+  merchant,
+  onOpenLogin,
+  onLogout,
 }) {
   if (tab === 'categories') {
     return (
@@ -892,6 +956,9 @@ export function MobileTabView({
         area={area}
         areas={areas}
         onAreaChange={onAreaChange}
+        merchant={merchant}
+        onOpenLogin={onOpenLogin}
+        onLogout={onLogout}
       />
     );
   }

@@ -425,6 +425,89 @@
   }
 }
 
+@keyframes mw-twinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-twinkle {
+  animation: mw-twinkle 3.6s ease-in-out infinite;
+}
+
+@keyframes mw-bg-breathe {
+  0%, 100% {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate3d(-0.5%, -0.4%, 0);
+  }
+}
+
+.animate-bg-breathe {
+  animation: mw-bg-breathe 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes mw-sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.6);
+  }
+  25% {
+    opacity: 0.95;
+  }
+  75% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(6px, -36px, 0) scale(1.15);
+  }
+}
+
+.animate-sparkle-float {
+  animation: mw-sparkle-float var(--dur, 5.5s) ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes mw-glow-pulse {
+  0%, 100% {
+    opacity: 0.32;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.78;
+    transform: scale(1.1);
+  }
+}
+
+.animate-glow-pulse {
+  animation: mw-glow-pulse 4.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes mw-ripple-ping {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.1);
+  }
+}
+
+.animate-ripple-ping {
+  animation: mw-ripple-ping 3.4s cubic-bezier(0.2, 0.7, 0.3, 1) infinite;
+  will-change: transform, opacity;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

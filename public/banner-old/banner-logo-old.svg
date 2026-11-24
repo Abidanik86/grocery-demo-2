@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 545 140" width="545" height="140" fill="none">
+  <defs>
+    
+    <linearGradient id="leafGradLeft" x1="45" y1="22" x2="72" y2="51" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8BC31E" />
+      <stop offset="100%" stop-color="#197E1C" />
+    </linearGradient>
+    <linearGradient id="leafGradRight" x1="113" y1="9" x2="76" y2="51" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8BC31E" />
+      <stop offset="100%" stop-color="#197E1C" />
+    </linearGradient>
+  </defs>
+
+  
+  <path d="M 72 51 C 52 50, 44 38, 45 22 C 62 24, 71 36, 72 51 Z" fill="url(#leafGradLeft)" />
+  
+  <path d="M 70.8 49.5 Q 61 39, 51.5 29.5 Q 62.5 37.5, 69.2 50 Z" fill="#FFFFFF" />
+
+  
+  <path d="M 76.5 51 C 74.5 31, 87 14, 113 9 C 115 32, 101 48, 76.5 51 Z" fill="url(#leafGradRight)" />
+  
+  <path d="M 78 49.5 Q 89 30.5, 105 16.5 Q 91.5 32.5, 80 50 Z" fill="#FFFFFF" />
+
+  
+  <path d="M 45.5 57 L 107.5 57 L 100 87 L 53 87 Z" stroke="#F4B618" stroke-width="4.6" stroke-linejoin="round" />
+  
+  <line x1="48" y1="67" x2="105" y2="67" stroke="#F4B618" stroke-width="3.6" />
+  <line x1="50.5" y1="77" x2="102.5" y2="77" stroke="#F4B618" stroke-width="3.6" />
+  
+  <line x1="61" y1="57" x2="64.75" y2="87" stroke="#F4B618" stroke-width="3.6" />
+  <line x1="76.5" y1="57" x2="76.5" y2="87" stroke="#F4B618" stroke-width="3.6" />
+  <line x1="92" y1="57" x2="88.25" y2="87" stroke="#F4B618" stroke-width="3.6" />
+
+  
+  <path d="M 15 45 L 29 45 Q 34 45 35.5 50 L 46.75 95 C 44.5 101.5, 46 110, 54 110 L 100 110" stroke="#197E1C" stroke-width="7.4" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <path d="M 46.75 95 L 100 91.5" stroke="#197E1C" stroke-width="7" stroke-linecap="round" />
+
+  
+  <circle cx="58" cy="123.5" r="6.8" fill="#197E1C" />
+  <circle cx="93" cy="123.5" r="6.8" fill="#197E1C" />
+
+  
+  <text x="128" y="85" font-family="&#39;Nunito&#39;, &#39;Rubik&#39;, &#39;Quicksand&#39;, &#39;Arial Rounded MT Bold&#39;, system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif" font-weight="800" letter-spacing="-1">
+    <tspan font-size="66" fill="#197E1C">Mudi</tspan><tspan font-size="66" fill="#F4B618">wala</tspan><tspan font-size="44" fill="#197E1C" letter-spacing="-0.5">.com</tspan>
+  </text>
+
+  
+  <text x="328" y="118" text-anchor="middle" font-family="&#39;Nunito&#39;, &#39;Rubik&#39;, &#39;Quicksand&#39;, system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif" font-size="25" font-weight="600" letter-spacing="0.4" fill="#197E1C">
+    Fresh Grocery Store
+  </text>
+</svg>

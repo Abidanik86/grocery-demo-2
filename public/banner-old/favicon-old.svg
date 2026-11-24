@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <defs>
+    
+    <linearGradient id="leafGradLeft" x1="47" y1="16.5" x2="74" y2="45.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8BC31E" />
+      <stop offset="100%" stop-color="#197E1C" />
+    </linearGradient>
+    <linearGradient id="leafGradRight" x1="115" y1="3.5" x2="78.5" y2="45.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8BC31E" />
+      <stop offset="100%" stop-color="#197E1C" />
+    </linearGradient>
+  </defs>
+
+  
+  <path d="M 74 45.5 C 54 44.5, 46 32.5, 47 16.5 C 64 18.5, 73 30.5, 74 45.5 Z" fill="url(#leafGradLeft)" />
+  
+  <path d="M 72.8 44 Q 63 33.5, 53.5 24 Q 64.5 32, 71.2 44.5 Z" fill="#FFFFFF" />
+
+  
+  <path d="M 78.5 45.5 C 76.5 25.5, 89 8.5, 115 3.5 C 117 26.5, 103 42.5, 78.5 45.5 Z" fill="url(#leafGradRight)" />
+  
+  <path d="M 80 44 Q 91 25, 107 11 Q 93.5 27, 82 44.5 Z" fill="#FFFFFF" />
+
+  
+  <path d="M 47.5 51.5 L 109.5 51.5 L 102 81.5 L 55 81.5 Z" stroke="#F4B618" stroke-width="5" stroke-linejoin="round" />
+  
+  <line x1="50" y1="61.5" x2="107" y2="61.5" stroke="#F4B618" stroke-width="3.8" />
+  <line x1="52.5" y1="71.5" x2="104.5" y2="71.5" stroke="#F4B618" stroke-width="3.8" />
+  
+  <line x1="63" y1="51.5" x2="66.75" y2="81.5" stroke="#F4B618" stroke-width="3.8" />
+  <line x1="78.5" y1="51.5" x2="78.5" y2="81.5" stroke="#F4B618" stroke-width="3.8" />
+  <line x1="94" y1="51.5" x2="90.25" y2="81.5" stroke="#F4B618" stroke-width="3.8" />
+
+  
+  <path d="M 16 39.5 L 31 39.5 Q 36 39.5 37.5 44.5 L 48.75 89.5 C 46.5 96, 48 104.5, 56 104.5 L 102 104.5" stroke="#197E1C" stroke-width="7.6" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <path d="M 48.75 89.5 L 102 86" stroke="#197E1C" stroke-width="7.2" stroke-linecap="round" />
+
+  
+  <circle cx="60" cy="118" r="7.2" fill="#197E1C" />
+  <circle cx="95" cy="118" r="7.2" fill="#197E1C" />
+</svg>
