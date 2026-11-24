@@ -355,8 +355,8 @@ export default function LoginPage({
             if (!e.currentTarget.contains(e.relatedTarget)) setCardActive(false);
           }}
           className={`animate-pop-in relative mt-4 w-full max-w-[385px] rounded-[20px] border bg-[#151e52]/55 p-5 backdrop-blur-xl transition-all duration-500 xs:p-6 sm:mt-5 sm:max-w-[410px] sm:p-7 lg:max-w-[425px] ${cardActive
-              ? 'border-amber-300/45 shadow-[0_28px_72px_rgba(3,6,26,0.82),0_0_56px_rgba(251,191,36,0.22)]'
-              : 'border-white/25 shadow-[0_28px_72px_rgba(3,6,26,0.78),0_0_48px_rgba(251,191,36,0.12)]'
+            ? 'border-amber-300/45 shadow-[0_28px_72px_rgba(3,6,26,0.82),0_0_56px_rgba(251,191,36,0.22)]'
+            : 'border-white/25 shadow-[0_28px_72px_rgba(3,6,26,0.78),0_0_48px_rgba(251,191,36,0.12)]'
             }`}
         >
           {/* Warm vertical golden edge light streaks on card borders */}
@@ -828,8 +828,8 @@ export default function LoginPage({
               </>
             ) : (
               <span className="inline-flex flex-wrap items-center justify-center gap-1.5">
-                <span className="text-white/65">অ্যাকাউন্ট নেই?</span>
-                <button
+                {/* <span className="text-white/65">অ্যাকাউন্ট নেই?</span> */}
+                {/* <button
                   type="button"
                   disabled={!REGISTER_ENABLED}
                   aria-disabled={!REGISTER_ENABLED}
@@ -846,12 +846,12 @@ export default function LoginPage({
                   }
                 >
                   রেজিস্টার করুন / Register Shop
-                </button>
-                {!REGISTER_ENABLED && (
-                  <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[10px] font-bold text-amber-200/80">
-                    শীঘ্রই আসছে
-                  </span>
-                )}
+                </button> */}
+                {/* {!REGISTER_ENABLED && (
+                  // <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[10px] font-bold text-amber-200/80">
+                  //   শীঘ্রই আসছে
+                  // </span>
+                )} */}
               </span>
             )}
           </div>
