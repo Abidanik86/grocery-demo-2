@@ -12,7 +12,7 @@ import {
   Truck,
   X,
 } from 'lucide-react';
-import { CATEGORIES, CATEGORY_ICONS } from '../data/categories';
+import { CATEGORIES, CATEGORY_ICONS, CATEGORY_THEMES } from '../data/categories';
 import { PRODUCTS, productsByCategory } from '../data/catalog';
 import { taka } from '../lib/format';
 import FeatureStrip from './FeatureStrip';
@@ -91,26 +91,31 @@ export function MobileHome({
         </div>
 
         <div className="mt-3.5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3.5">
-          {CATEGORIES.filter((category) => category.id !== 'all').map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              onClick={() => onOpenCategories(category.id)}
-              className="flex items-center gap-2.5 rounded-2xl border border-line bg-surface p-3 text-left shadow-soft transition-colors active:bg-action-soft"
-            >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-art text-[22px]">
-                {CATEGORY_ICONS[category.icon]}
-              </span>
-              <span className="min-w-0">
-                <span className="block truncate text-[15px] font-black text-ink">
-                  {lang === 'bn' ? category.bn : category.en}
+          {CATEGORIES.filter((category) => category.id !== 'all').map((category) => {
+            const theme = CATEGORY_THEMES[category.id] || {
+              badge: 'bg-emerald-100 text-emerald-800 border border-emerald-300/70 shadow-xs',
+            };
+            return (
+              <button
+                key={category.id}
+                type="button"
+                onClick={() => onOpenCategories(category.id)}
+                className="flex items-center gap-2.5 rounded-2xl border border-line bg-surface p-3 text-left shadow-soft transition-colors active:bg-action-soft"
+              >
+                <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl text-[22px] ${theme.badge}`}>
+                  {CATEGORY_ICONS[category.icon]}
                 </span>
-                <span className="num block text-[12px] font-bold text-muted">
-                  {CATEGORY_COUNTS[category.id]} {copy.mobile.inCategory}
+                <span className="min-w-0">
+                  <span className="block truncate text-[15px] font-black text-ink">
+                    {lang === 'bn' ? category.bn : category.en}
+                  </span>
+                  <span className="num block text-[12px] font-bold text-muted">
+                    {CATEGORY_COUNTS[category.id]} {copy.mobile.inCategory}
+                  </span>
                 </span>
-              </span>
-            </button>
-          ))}
+              </button>
+            );
+          })}
         </div>
       </section>
 

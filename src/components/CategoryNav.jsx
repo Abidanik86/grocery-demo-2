@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, LayoutGrid } from 'lucide-react';
-import { CATEGORIES, CATEGORY_ICONS } from '../data/categories';
+import { CATEGORIES, CATEGORY_ICONS, CATEGORY_THEMES } from '../data/categories';
 import { productsByCategory } from '../data/catalog';
 
 export default function CategoryNav({
@@ -50,6 +50,9 @@ export default function CategoryNav({
                 {CATEGORIES.filter((category) => category.id !== 'all').map(
                   (category) => {
                     const count = productsByCategory(category.id).length;
+                    const theme = CATEGORY_THEMES[category.id] || {
+                      badge: 'bg-emerald-100 text-emerald-800 border border-emerald-300/70 shadow-xs',
+                    };
                     return (
                       <button
                         key={category.id}
@@ -57,7 +60,7 @@ export default function CategoryNav({
                         onClick={() => pick(category.id)}
                         className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-action-soft"
                       >
-                        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-art text-[18px] transition-transform group-hover:scale-110">
+                        <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-[20px] transition-transform group-hover:scale-110 ${theme.badge}`}>
                           {CATEGORY_ICONS[category.icon]}
                         </span>
                         <span className="min-w-0 flex-1">

@@ -72,3 +72,55 @@ export const CATEGORY_ICONS = {
   cup: '☕',
   grid: '🧺',
 };
+
+/** Distinct color palette for each category icon badge */
+export const CATEGORY_THEMES = {
+  all: {
+    bg: 'bg-amber-100',
+    border: 'border-amber-300/80',
+    ring: 'ring-amber-300/60',
+    text: 'text-amber-800',
+    badge: 'bg-gradient-to-br from-amber-50 to-amber-100/90 text-amber-800 border border-amber-300/70 shadow-xs',
+    hoverBg: 'hover:bg-amber-50/80',
+  },
+  'vegetables-fruits': {
+    bg: 'bg-emerald-100',
+    border: 'border-emerald-300/80',
+    ring: 'ring-emerald-300/60',
+    text: 'text-emerald-800',
+    badge: 'bg-gradient-to-br from-emerald-50 to-emerald-100/90 text-emerald-800 border border-emerald-300/70 shadow-xs',
+    hoverBg: 'hover:bg-emerald-50/80',
+  },
+  'dairy-eggs': {
+    bg: 'bg-sky-100',
+    border: 'border-sky-300/80',
+    ring: 'ring-sky-300/60',
+    text: 'text-sky-800',
+    badge: 'bg-gradient-to-br from-sky-50 to-sky-100/90 text-sky-800 border border-sky-300/70 shadow-xs',
+    hoverBg: 'hover:bg-sky-50/80',
+  },
+  'grocery-staples': {
+    bg: 'bg-orange-100',
+    border: 'border-orange-300/80',
+    ring: 'ring-orange-300/60',
+    text: 'text-orange-800',
+    badge: 'bg-gradient-to-br from-orange-50 to-orange-100/90 text-orange-800 border border-orange-300/70 shadow-xs',
+    hoverBg: 'hover:bg-orange-50/80',
+  },
+  'personal-care': {
+    bg: 'bg-pink-100',
+    border: 'border-pink-300/80',
+    ring: 'ring-pink-300/60',
+    text: 'text-pink-800',
+    badge: 'bg-gradient-to-br from-pink-50 to-pink-100/90 text-pink-800 border border-pink-300/70 shadow-xs',
+    hoverBg: 'hover:bg-pink-50/80',
+  },
+  'snacks-drinks': {
+    bg: 'bg-purple-100',
+    border: 'border-purple-300/80',
+    ring: 'ring-purple-300/60',
+    text: 'text-purple-800',
+    badge: 'bg-gradient-to-br from-purple-50 to-purple-100/90 text-purple-800 border border-purple-300/70 shadow-xs',
+    hoverBg: 'hover:bg-purple-50/80',
+  },
+};

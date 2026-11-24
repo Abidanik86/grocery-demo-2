@@ -1,4 +1,15 @@
-import { Grid2X2, Heart, Home, Search, ShoppingCart, User } from 'lucide-react';
+import {
+  Grid2X2,
+  Headphones,
+  Heart,
+  Home,
+  Phone,
+  Search,
+  ShoppingCart,
+  Truck,
+  User,
+} from 'lucide-react';
+import { CATEGORY_THEMES } from '../data/categories';
 import { taka } from '../lib/format';
 
 /**
@@ -9,11 +20,51 @@ import { taka } from '../lib/format';
  */
 export function MobileNav({ copy, activeTab, onTabChange, cartCount, wishlistCount }) {
   const tabs = [
-    { id: 'home', icon: Home, label: copy.nav.home },
-    { id: 'categories', icon: Grid2X2, label: copy.nav.categories },
-    { id: 'search', icon: Search, label: copy.nav.searchBtn },
-    { id: 'account', icon: User, label: copy.nav.account },
-    { id: 'cart', icon: ShoppingCart, label: copy.nav.cart },
+    {
+      id: 'home',
+      icon: Home,
+      label: copy.nav.home,
+      bubble: 'bg-gradient-to-tr from-emerald-100 via-emerald-50 to-teal-100 text-emerald-800 ring-1 ring-emerald-300/60',
+      activeText: 'text-emerald-800',
+      activeIcon: 'text-emerald-700',
+      bar: 'from-emerald-500 via-emerald-400 to-teal-500',
+    },
+    {
+      id: 'categories',
+      icon: Grid2X2,
+      label: copy.nav.categories,
+      bubble: 'bg-gradient-to-tr from-indigo-100 via-indigo-50 to-blue-100 text-indigo-800 ring-1 ring-indigo-300/60',
+      activeText: 'text-indigo-800',
+      activeIcon: 'text-indigo-700',
+      bar: 'from-indigo-500 via-blue-400 to-indigo-500',
+    },
+    {
+      id: 'search',
+      icon: Search,
+      label: copy.nav.searchBtn,
+      bubble: 'bg-gradient-to-tr from-amber-100 via-amber-50 to-orange-100 text-amber-800 ring-1 ring-amber-300/60',
+      activeText: 'text-amber-800',
+      activeIcon: 'text-amber-700',
+      bar: 'from-amber-500 via-orange-400 to-amber-500',
+    },
+    {
+      id: 'account',
+      icon: User,
+      label: copy.nav.account,
+      bubble: 'bg-gradient-to-tr from-purple-100 via-purple-50 to-pink-100 text-purple-800 ring-1 ring-purple-300/60',
+      activeText: 'text-purple-800',
+      activeIcon: 'text-purple-700',
+      bar: 'from-purple-500 via-pink-400 to-purple-500',
+    },
+    {
+      id: 'cart',
+      icon: ShoppingCart,
+      label: copy.nav.cart,
+      bubble: 'bg-gradient-to-tr from-rose-100 via-rose-50 to-pink-100 text-rose-800 ring-1 ring-rose-300/60',
+      activeText: 'text-rose-800',
+      activeIcon: 'text-rose-700',
+      bar: 'from-rose-500 via-red-400 to-pink-500',
+    },
   ];
 
   return (
@@ -36,20 +87,20 @@ export function MobileNav({ copy, activeTab, onTabChange, cartCount, wishlistCou
               >
                 {/* Top glow indicator */}
                 {active && (
-                  <span className="absolute top-0.5 h-1 w-7 rounded-full bg-gradient-to-r from-emerald-500 via-[#f07b1a] to-emerald-500 shadow-xs animate-pulse-gentle" />
+                  <span className={`absolute top-0.5 h-1 w-7 rounded-full bg-gradient-to-r ${tab.bar} shadow-xs animate-pulse-gentle`} />
                 )}
 
                 {/* Animated Icon Bubble */}
                 <span
                   className={`relative grid h-8 w-11 place-items-center rounded-2xl transition-all duration-300 ${
                     active
-                      ? 'bg-gradient-to-tr from-emerald-100 via-emerald-50 to-teal-100 text-brand-deep shadow-xs ring-1 ring-emerald-300/50 scale-105 -translate-y-0.5 animate-bounce-micro'
+                      ? `${tab.bubble} shadow-xs scale-105 -translate-y-0.5 animate-bounce-micro`
                       : 'text-gray-500 group-hover:text-gray-800 group-hover:scale-105'
                   }`}
                 >
                   <Icon
                     className={`h-[22px] w-[22px] transition-transform duration-200 ${
-                      active ? 'stroke-[2.7] text-emerald-700' : 'stroke-[2]'
+                      active ? `stroke-[2.7] ${tab.activeIcon}` : 'stroke-[2]'
                     }`}
                   />
                   {badge > 0 && (
@@ -63,7 +114,7 @@ export function MobileNav({ copy, activeTab, onTabChange, cartCount, wishlistCou
                 <span
                   className={`mt-0.5 max-w-full truncate px-0.5 text-[12px] sm:text-[12.5px] tracking-tight transition-all duration-200 ${
                     active
-                      ? 'font-black text-emerald-800 scale-[1.03]'
+                      ? `font-black ${tab.activeText} scale-[1.03]`
                       : 'font-bold text-gray-500 group-hover:text-gray-800'
                   }`}
                 >
@@ -215,43 +266,84 @@ export function MenuDrawer({ copy, lang, open, onClose, categories, onPickCatego
 
         <nav className="flex-1 overflow-y-auto px-3.5 py-3.5">
           <ul className="space-y-1.5">
-            {categories.map((category) => (
-              <li key={category.id}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onPickCategory(category.id);
-                    onClose();
-                  }}
-                  className="flex w-full items-center gap-3.5 rounded-2xl px-3.5 py-3 text-left transition-all hover:bg-brand-soft hover:text-brand-deep active:scale-[0.98]"
-                >
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-art text-[22px] shadow-xs">
-                    {category.icon}
-                  </span>
-                  <span className="text-[17px] font-black text-gray-950 tracking-tight">
-                    {lang === 'bn' ? category.bn : category.en}
-                  </span>
-                </button>
-              </li>
-            ))}
+            {categories.map((category) => {
+              const theme = CATEGORY_THEMES[category.id] || {
+                badge: 'bg-gradient-to-br from-emerald-50 to-emerald-100/90 text-emerald-800 border border-emerald-300/70 shadow-xs',
+                hoverBg: 'hover:bg-emerald-50/80',
+              };
+              return (
+                <li key={category.id}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onPickCategory(category.id);
+                      onClose();
+                    }}
+                    className={`flex w-full items-center gap-3.5 rounded-2xl px-3.5 py-2.5 text-left transition-all ${theme.hoverBg} hover:shadow-xs active:scale-[0.98]`}
+                  >
+                    <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl text-[24px] ${theme.badge}`}>
+                      {category.icon}
+                    </span>
+                    <span className="text-[17px] font-black text-gray-950 tracking-tight">
+                      {lang === 'bn' ? category.bn : category.en}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
           </ul>
 
-          <div className="my-4 h-px bg-line/80" />
+          <div className="my-3.5 h-px bg-line/80" />
 
-          <ul className="space-y-1">
-            {[copy.nav.trackOrder, copy.nav.help, copy.nav.account, copy.nav.contact].map(
-              (item) => (
-                <li key={item}>
+          <ul className="space-y-1.5">
+            {[
+              {
+                id: 'trackOrder',
+                label: copy.nav.trackOrder,
+                icon: Truck,
+                badge: 'bg-gradient-to-br from-blue-50 to-blue-100/90 text-blue-700 border border-blue-200/80',
+                hover: 'hover:bg-blue-50/80',
+              },
+              {
+                id: 'help',
+                label: copy.nav.help,
+                icon: Headphones,
+                badge: 'bg-gradient-to-br from-teal-50 to-teal-100/90 text-teal-700 border border-teal-200/80',
+                hover: 'hover:bg-teal-50/80',
+              },
+              {
+                id: 'account',
+                label: copy.nav.account,
+                icon: User,
+                badge: 'bg-gradient-to-br from-indigo-50 to-indigo-100/90 text-indigo-700 border border-indigo-200/80',
+                hover: 'hover:bg-indigo-50/80',
+              },
+              {
+                id: 'contact',
+                label: copy.nav.contact,
+                icon: Phone,
+                badge: 'bg-gradient-to-br from-amber-50 to-amber-100/90 text-amber-700 border border-amber-200/80',
+                hover: 'hover:bg-amber-50/80',
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <li key={item.id}>
                   <button
                     type="button"
                     onClick={onClose}
-                    className="w-full rounded-xl px-4 py-3 text-left text-[15.5px] font-black text-gray-900 transition-colors hover:bg-line-soft hover:text-brand active:scale-[0.98]"
+                    className={`flex w-full items-center gap-3.5 rounded-2xl px-3.5 py-2.5 text-left transition-all ${item.hover} hover:text-brand active:scale-[0.98]`}
                   >
-                    {item}
+                    <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${item.badge} shadow-xs`}>
+                      <Icon className="h-5 w-5 stroke-[2.4]" />
+                    </span>
+                    <span className="text-[16px] font-black text-gray-900 tracking-tight">
+                      {item.label}
+                    </span>
                   </button>
                 </li>
-              ),
-            )}
+              );
+            })}
           </ul>
         </nav>
 
