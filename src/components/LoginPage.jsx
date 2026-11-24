@@ -45,6 +45,8 @@ function isValidBdPhone(digits) {
   return /^1[3-9]\d{8}$/.test(digits);
 }
 
+const REGISTER_ENABLED = false;
+
 export default function LoginPage({
   lang = 'bn',
   initialMode = 'login',
@@ -52,7 +54,9 @@ export default function LoginPage({
   onBack,
   onSuccess,
 }) {
-  const [mode, setMode] = useState(initialMode); // 'login' | 'otp' | 'register' | 'forgot'
+  const safeInitialMode =
+    !REGISTER_ENABLED && initialMode === 'register' ? 'login' : initialMode;
+  const [mode, setMode] = useState(safeInitialMode); // 'login' | 'otp' | 'register' | 'forgot'
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -90,7 +94,7 @@ export default function LoginPage({
   };
 
   useEffect(() => {
-    setMode(initialMode);
+    setMode(!REGISTER_ENABLED && initialMode === 'register' ? 'login' : initialMode);
   }, [initialMode]);
 
   useEffect(() => {
@@ -100,6 +104,7 @@ export default function LoginPage({
   }, [countdown]);
 
   const switchMode = (nextMode) => {
+    if (!REGISTER_ENABLED && nextMode === 'register') return;
     setMode(nextMode);
     setError('');
     setInfo('');
@@ -294,9 +299,8 @@ export default function LoginPage({
 
         {/* Interactive golden aura behind center card — intensifies when typing */}
         <div
-          className={`absolute left-1/2 top-[56%] h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[90px] transition-all duration-700 ${
-            cardActive ? 'bg-amber-400/22 scale-110' : 'bg-indigo-400/10 scale-100'
-          }`}
+          className={`absolute left-1/2 top-[56%] h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[90px] transition-all duration-700 ${cardActive ? 'bg-amber-400/22 scale-110' : 'bg-indigo-400/10 scale-100'
+            }`}
         />
       </div>
 
@@ -350,11 +354,10 @@ export default function LoginPage({
           onBlur={(e) => {
             if (!e.currentTarget.contains(e.relatedTarget)) setCardActive(false);
           }}
-          className={`animate-pop-in relative mt-4 w-full max-w-[385px] rounded-[20px] border bg-[#151e52]/55 p-5 backdrop-blur-xl transition-all duration-500 xs:p-6 sm:mt-5 sm:max-w-[410px] sm:p-7 lg:max-w-[425px] ${
-            cardActive
+          className={`animate-pop-in relative mt-4 w-full max-w-[385px] rounded-[20px] border bg-[#151e52]/55 p-5 backdrop-blur-xl transition-all duration-500 xs:p-6 sm:mt-5 sm:max-w-[410px] sm:p-7 lg:max-w-[425px] ${cardActive
               ? 'border-amber-300/45 shadow-[0_28px_72px_rgba(3,6,26,0.82),0_0_56px_rgba(251,191,36,0.22)]'
               : 'border-white/25 shadow-[0_28px_72px_rgba(3,6,26,0.78),0_0_48px_rgba(251,191,36,0.12)]'
-          }`}
+            }`}
         >
           {/* Warm vertical golden edge light streaks on card borders */}
           <div
@@ -609,7 +612,7 @@ export default function LoginPage({
           )}
 
           {/* MODE 3: REGISTER SHOP */}
-          {mode === 'register' && (
+          {REGISTER_ENABLED && mode === 'register' && (
             <form onSubmit={handleRegister} className="mt-4 space-y-3">
               <div>
                 <label className="mb-1 block text-[12.5px] font-semibold text-white/95">
@@ -812,7 +815,7 @@ export default function LoginPage({
 
           {/* Footer Link: Register Shop / Login */}
           <div className="mt-4 text-center text-[12px] text-white/85 sm:text-[12.5px]">
-            {mode === 'register' ? (
+            {REGISTER_ENABLED && mode === 'register' ? (
               <>
                 ইতোমধ্যে অ্যাকাউন্ট আছে?{' '}
                 <button
@@ -820,20 +823,36 @@ export default function LoginPage({
                   onClick={() => switchMode('login')}
                   className="font-semibold text-[#38bdf8] transition-colors hover:text-amber-300"
                 >
-                  লগইন করুন / Partner Login
+                  লগইন করুন / Login
                 </button>
               </>
             ) : (
-              <>
-                অ্যাকাউন্ট নেই?{' '}
+              <span className="inline-flex flex-wrap items-center justify-center gap-1.5">
+                <span className="text-white/65">অ্যাকাউন্ট নেই?</span>
                 <button
                   type="button"
+                  disabled={!REGISTER_ENABLED}
+                  aria-disabled={!REGISTER_ENABLED}
+                  title={
+                    REGISTER_ENABLED
+                      ? undefined
+                      : 'রেজিস্ট্রেশন সাময়িকভাবে বন্ধ আছে / Registration currently disabled'
+                  }
                   onClick={() => switchMode('register')}
-                  className="font-semibold text-[#38bdf8] transition-colors hover:text-amber-300"
+                  className={
+                    REGISTER_ENABLED
+                      ? 'font-semibold text-[#38bdf8] transition-colors hover:text-amber-300'
+                      : 'cursor-not-allowed font-semibold text-white/40 line-through decoration-white/30'
+                  }
                 >
                   রেজিস্টার করুন / Register Shop
                 </button>
-              </>
+                {!REGISTER_ENABLED && (
+                  <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[10px] font-bold text-amber-200/80">
+                    শীঘ্রই আসছে
+                  </span>
+                )}
+              </span>
             )}
           </div>
         </section>

@@ -188,7 +188,7 @@ export const COPY = {
       help: 'Help',
       account: 'My account',
       login: 'Login',
-      partnerLogin: 'Partner Login',
+      partnerLogin: 'Login',
       logout: 'Sign out',
       wishlist: 'Wishlist',
       cart: 'Cart',
